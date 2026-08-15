@@ -279,6 +279,58 @@
         .admin-song-item .actions {
             display: flex;
             gap: .5rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .btn-edit {
+            background: #3498db;
+            color: #fff;
+        }
+
+        .btn-edit:hover {
+            background: #2980b9;
+        }
+
+        .edit-badge {
+            display: inline-block;
+            margin-left: .5rem;
+            padding: .2rem .55rem;
+            border-radius: 12px;
+            background: #eaf4ff;
+            color: #2471a3;
+            font-size: .72rem;
+            font-weight: 700;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: .7rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-cancel {
+            background: #777;
+            color: #fff;
+        }
+
+        .status-message {
+            margin-top: .8rem;
+            font-size: .9rem;
+            min-height: 1.2rem;
+        }
+
+        @media(max-width:650px) {
+            .admin-song-item {
+                align-items: flex-start;
+                gap: .7rem;
+                flex-direction: column;
+            }
+
+            .admin-song-item .actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
         }
 
         .login-overlay {
@@ -565,6 +617,8 @@
         id="adminPanel"
     >
 
+        <input type="hidden" id="editingSongId" value="">
+
         <h2>
             <i class="fas fa-plus-circle"></i>
             Add New Song
@@ -629,13 +683,29 @@
         </div>
 
 
-        <button
-            class="btn"
-            id="addSongBtn"
-        >
-            <i class="fas fa-save"></i>
-            Add Song
-        </button>
+        <div class="form-actions">
+
+            <button
+                class="btn"
+                id="addSongBtn"
+            >
+                <i class="fas fa-save"></i>
+                Add Song
+            </button>
+
+            <button
+                class="btn btn-cancel"
+                id="cancelEditBtn"
+                type="button"
+                style="display:none;"
+            >
+                <i class="fas fa-times"></i>
+                Cancel Edit
+            </button>
+
+        </div>
+
+        <div class="status-message" id="formStatus"></div>
 
 
         <hr style="margin:1.5rem 0;" />
@@ -684,7 +754,7 @@
 <footer class="footer">
 
     <p>
-        ✝️ Jesus Songs · Powered by Supabase
+        ✝️ Jesus Songs · Powered by Branks3
     </p>
 
 </footer>
@@ -760,6 +830,15 @@ const logoutBtn =
 
 const addSongBtn =
     document.getElementById("addSongBtn");
+
+const cancelEditBtn =
+    document.getElementById("cancelEditBtn");
+
+const editingSongId =
+    document.getElementById("editingSongId");
+
+const formStatus =
+    document.getElementById("formStatus");
 
 const songTitle =
     document.getElementById("songTitle");
@@ -1013,37 +1092,44 @@ function renderSongs() {
 function renderAdminList() {
 
     if (!currentUser) {
-
         adminSongList.innerHTML = "";
-
         return;
     }
-
 
     if (songs.length === 0) {
-
         adminSongList.innerHTML =
             "<p style='color:#999;'>No songs yet.</p>";
-
         return;
     }
-
 
     adminSongList.innerHTML =
         songs.map(song => {
 
             return `
-
                 <div class="admin-song-item">
 
                     <span>
-
                         ${escapeHTML(song.title)}
-
+                        ${
+                            Number(editingSongId.value) === Number(song.id)
+                            ? `<span class="edit-badge">Editing</span>`
+                            : ""
+                        }
                     </span>
 
-
                     <div class="actions">
+
+                        <button
+                            class="btn btn-edit edit-song"
+                            data-id="${song.id}"
+                            style="
+                            padding:.25rem .8rem;
+                            font-size:.8rem;
+                            "
+                        >
+                            <i class="fas fa-pen"></i>
+                            Edit
+                        </button>
 
                         <button
                             class="btn btn-danger delete-song"
@@ -1053,13 +1139,8 @@ function renderAdminList() {
                             font-size:.8rem;
                             "
                         >
-
-                            <i
-                                class="fas fa-trash"
-                            ></i>
-
+                            <i class="fas fa-trash"></i>
                             Delete
-
                         </button>
 
                     </div>
@@ -1069,25 +1150,26 @@ function renderAdminList() {
 
         }).join("");
 
+    document
+        .querySelectorAll(".edit-song")
+        .forEach(button => {
+
+            button.addEventListener("click", () => {
+                startEditSong(Number(button.dataset.id));
+            });
+
+        });
 
     document
         .querySelectorAll(".delete-song")
         .forEach(button => {
 
-            button.addEventListener(
-                "click",
-                () => {
-
-                    deleteSong(
-                        Number(button.dataset.id)
-                    );
-
-                }
-            );
+            button.addEventListener("click", () => {
+                deleteSong(Number(button.dataset.id));
+            });
 
         });
 }
-
 
 /* ============================================================
    OPEN SONG DETAIL
@@ -1255,6 +1337,15 @@ async function addSong() {
         return;
     }
 
+    // If an existing song is selected for editing,
+    // update that song instead of inserting a new row.
+    const editId = Number(editingSongId.value);
+
+    if (editId) {
+        await updateSong(editId);
+        return;
+    }
+
 
     const title =
         songTitle.value.trim();
@@ -1335,6 +1426,150 @@ async function addSong() {
 
 
     alert("✅ Song added to Supabase!");
+}
+
+
+/* ============================================================
+   EDIT / UPDATE SONG
+   ============================================================ */
+
+function startEditSong(id) {
+
+    if (!currentUser) {
+        alert("Please login first.");
+        return;
+    }
+
+    const song = songs.find(
+        s => Number(s.id) === Number(id)
+    );
+
+    if (!song) {
+        alert("Song not found.");
+        return;
+    }
+
+    editingSongId.value = song.id;
+
+    songTitle.value = song.title || "";
+    songLyrics.value = song.lyrics || "";
+    songLink.value = song.audio_url || "";
+    songCategory.value = song.category || "";
+
+    addSongBtn.innerHTML =
+        `<i class="fas fa-save"></i> Update Song`;
+
+    cancelEditBtn.style.display = "inline-block";
+
+    formStatus.textContent =
+        `Editing: ${song.title || "Untitled song"}`;
+
+    formStatus.style.color = "#2471a3";
+
+    renderAdminList();
+
+    document
+        .getElementById("songTitle")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    songTitle.focus();
+}
+
+
+function cancelEdit() {
+
+    editingSongId.value = "";
+
+    songTitle.value = "";
+    songLyrics.value = "";
+    songLink.value = "";
+    songCategory.value = "";
+
+    addSongBtn.disabled = false;
+
+    addSongBtn.innerHTML =
+        `<i class="fas fa-save"></i> Add Song`;
+
+    cancelEditBtn.style.display = "none";
+
+    formStatus.textContent = "";
+
+    renderAdminList();
+}
+
+
+async function updateSong(id) {
+
+    if (!currentUser) {
+        alert("Please login first.");
+        return;
+    }
+
+    const title =
+        songTitle.value.trim();
+
+    const lyrics =
+        songLyrics.value.trim();
+
+    const link =
+        songLink.value.trim();
+
+    const category =
+        songCategory.value.trim();
+
+    if (!title || !lyrics) {
+        alert("Song title and lyrics are required.");
+        return;
+    }
+
+    addSongBtn.disabled = true;
+    cancelEditBtn.disabled = true;
+
+    addSongBtn.innerHTML =
+        `<i class="fas fa-spinner fa-spin"></i> Updating...`;
+
+    formStatus.textContent = "Updating song...";
+    formStatus.style.color = "#2471a3";
+
+    const {
+        error
+    } =
+        await supabaseClient
+            .from("songs")
+            .update({
+                title: title,
+                lyrics: lyrics,
+                audio_url: link || null,
+                category: category || "Worship"
+            })
+            .eq("id", id);
+
+    addSongBtn.disabled = false;
+    cancelEditBtn.disabled = false;
+
+    if (error) {
+
+        console.error(error);
+
+        formStatus.textContent =
+            "❌ Update failed: " + error.message;
+
+        formStatus.style.color = "#c0392b";
+
+        addSongBtn.innerHTML =
+            `<i class="fas fa-save"></i> Update Song`;
+
+        return;
+    }
+
+    cancelEdit();
+
+    await loadSongs();
+
+    alert("✅ Song updated successfully!");
 }
 
 
@@ -1579,6 +1814,11 @@ grid.addEventListener(
 addSongBtn.addEventListener(
     "click",
     addSong
+);
+
+cancelEditBtn.addEventListener(
+    "click",
+    cancelEdit
 );
 
 
