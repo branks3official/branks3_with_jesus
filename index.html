@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,7 +15,6 @@
 <!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-
 <style>
 
 /* ============================================================
@@ -24,7 +22,6 @@
 ============================================================ */
 
 :root {
-
     --body-bg:#f7f3ee;
     --body-text:#222;
 
@@ -84,7 +81,7 @@ body.dark-mode {
 
     --title-color:#f5f5f5;
     --text-color:#eee;
-    --muted-text:#aaa;
+    --muted-text:#a8a8a8;
     --preview-color:#bdbdbd;
 
     --border-color:#30333b;
@@ -121,17 +118,11 @@ html {
 }
 
 body {
-
     font-family:'Segoe UI',Roboto,sans-serif;
-
     background:var(--body-bg);
     color:var(--body-text);
-
     min-height:100vh;
-
-    transition:
-        background-color .3s ease,
-        color .3s ease;
+    transition:background-color .3s ease,color .3s ease;
 }
 
 
@@ -153,21 +144,14 @@ body {
     padding:1.2rem 2rem;
 
     display:flex;
-
     flex-wrap:wrap;
-
     align-items:center;
-
     justify-content:space-between;
-
-    gap:1rem;
 
     box-shadow:0 4px 15px rgba(0,0,0,.3);
 
     position:sticky;
-
     top:0;
-
     z-index:100;
 }
 
@@ -176,25 +160,20 @@ body {
     font-size:1.9rem;
 
     display:flex;
-
     align-items:center;
 
     gap:.5rem;
 }
 
 .header h1 i {
-
     color:var(--primary);
 }
 
 .header-controls {
 
     display:flex;
-
     align-items:center;
-
     gap:1rem;
-
     flex-wrap:wrap;
 }
 
@@ -204,7 +183,6 @@ body {
 ============================================================ */
 
 .search-wrap {
-
     position:relative;
 }
 
@@ -213,7 +191,6 @@ body {
     position:absolute;
 
     left:.8rem;
-
     top:50%;
 
     transform:translateY(-50%);
@@ -225,7 +202,7 @@ body {
 
 #searchInput {
 
-    padding:.55rem 1rem .55rem 2.2rem;
+    padding:.6rem 1rem .6rem 2.3rem;
 
     border:none;
 
@@ -241,12 +218,11 @@ body {
 
     transition:.3s;
 
-    min-width:240px;
+    min-width:260px;
 }
 
 #searchInput::placeholder {
-
-    color:rgba(255,255,255,.6);
+    color:rgba(255,255,255,.65);
 }
 
 #searchInput:focus {
@@ -254,6 +230,37 @@ body {
     outline-color:var(--primary);
 
     background:rgba(255,255,255,.25);
+}
+
+
+/* ============================================================
+   SEARCH CLEAR
+============================================================ */
+
+.search-clear {
+
+    position:absolute;
+
+    right:10px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    border:none;
+
+    background:transparent;
+
+    color:rgba(255,255,255,.7);
+
+    cursor:pointer;
+
+    display:none;
+
+    font-size:.9rem;
+}
+
+.search-clear.show {
+    display:block;
 }
 
 
@@ -329,7 +336,6 @@ body {
 }
 
 .btn-edit:hover {
-
     background:#2980b9;
 }
 
@@ -527,7 +533,6 @@ body {
 }
 
 .song-link a:hover {
-
     text-decoration:underline;
 }
 
@@ -535,8 +540,7 @@ body {
 
     padding:.7rem 1.5rem 1rem;
 
-    border-top:
-        1px solid var(--soft-border);
+    border-top:1px solid var(--soft-border);
 
     display:flex;
 
@@ -558,7 +562,7 @@ body {
 
     padding:5rem 2rem;
 
-    grid-column:1/-1;
+    grid-column:1 / -1;
 
     color:var(--muted-text);
 }
@@ -616,13 +620,17 @@ body {
 }
 
 .admin-panel.active {
-
     display:block;
 }
 
-.admin-panel h2,
-.admin-panel h3 {
+.admin-panel h2 {
 
+    margin-bottom:1rem;
+
+    color:var(--title-color);
+}
+
+.admin-panel h3 {
     color:var(--title-color);
 }
 
@@ -632,7 +640,6 @@ body {
 ============================================================ */
 
 .form-group {
-
     margin-bottom:1rem;
 }
 
@@ -654,8 +661,7 @@ body {
 
     padding:.7rem 1rem;
 
-    border:
-        2px solid var(--input-border);
+    border:2px solid var(--input-border);
 
     border-radius:8px;
 
@@ -683,7 +689,6 @@ body {
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-
     color:var(--muted-text);
 }
 
@@ -693,6 +698,11 @@ body {
 
     resize:vertical;
 }
+
+
+/* ============================================================
+   FORM ACTIONS
+============================================================ */
 
 .form-actions {
 
@@ -714,15 +724,14 @@ body {
 
 
 /* ============================================================
-   ADMIN LIST
+   ADMIN SONG LIST
 ============================================================ */
 
 .admin-song-list {
 
     margin-top:2rem;
 
-    border-top:
-        2px dashed var(--input-border);
+    border-top:2px dashed var(--input-border);
 
     padding-top:1.5rem;
 }
@@ -737,8 +746,7 @@ body {
 
     padding:.7rem 0;
 
-    border-bottom:
-        1px solid var(--border-color);
+    border-bottom:1px solid var(--border-color);
 
     color:var(--text-color);
 }
@@ -798,7 +806,6 @@ body {
 }
 
 .login-overlay.active {
-
     display:flex;
 }
 
@@ -837,8 +844,7 @@ body {
 
     margin-bottom:1rem;
 
-    border:
-        2px solid var(--input-border);
+    border:2px solid var(--input-border);
 
     border-radius:8px;
 
@@ -852,12 +858,10 @@ body {
 }
 
 .login-modal input:focus {
-
     border-color:var(--primary);
 }
 
 .login-modal input::placeholder {
-
     color:var(--muted-text);
 }
 
@@ -904,7 +908,6 @@ body {
 }
 
 .song-detail-overlay.active {
-
     display:flex;
 }
 
@@ -949,6 +952,8 @@ body {
     border:none;
 
     background:none;
+
+    transition:.2s;
 }
 
 .close-btn:hover {
@@ -992,11 +997,9 @@ body {
 
     padding:1rem 0;
 
-    border-top:
-        2px solid var(--soft-border);
+    border-top:2px solid var(--soft-border);
 
-    border-bottom:
-        2px solid var(--soft-border);
+    border-bottom:2px solid var(--soft-border);
 }
 
 .detail-link a {
@@ -1028,7 +1031,7 @@ body {
 
 
 /* ============================================================
-   RESPONSIVE
+   MOBILE
 ============================================================ */
 
 @media(max-width:650px) {
@@ -1038,11 +1041,16 @@ body {
         flex-direction:column;
 
         align-items:stretch;
+
+        gap:.8rem;
     }
 
     .header-controls {
-
         justify-content:center;
+    }
+
+    .search-wrap {
+        width:100%;
     }
 
     #searchInput {
@@ -1053,12 +1061,10 @@ body {
     }
 
     .songs-grid {
-
         grid-template-columns:1fr;
     }
 
     .song-detail-modal {
-
         padding:1.5rem;
     }
 
@@ -1079,10 +1085,8 @@ body {
     }
 
     .detail-title {
-
         font-size:1.5rem;
     }
-
 }
 
 </style>
@@ -1106,7 +1110,6 @@ body {
 
     <div class="header-controls">
 
-
         <div class="search-wrap">
 
             <i class="fas fa-search"></i>
@@ -1116,7 +1119,17 @@ body {
                 id="searchInput"
                 placeholder="Search songs..."
                 autocomplete="off"
+                spellcheck="false"
             >
+
+            <button
+                type="button"
+                id="searchClearBtn"
+                class="search-clear"
+                title="Clear search"
+            >
+                <i class="fas fa-times"></i>
+            </button>
 
         </div>
 
@@ -1175,11 +1188,8 @@ body {
     <div class="login-modal">
 
         <h2>
-
             <i class="fas fa-lock"></i>
-
             Admin Login
-
         </h2>
 
 
@@ -1201,9 +1211,7 @@ body {
             class="btn"
             id="loginBtn"
         >
-
             Login
-
         </button>
 
 
@@ -1220,9 +1228,7 @@ body {
             color:var(--muted-text);
             "
         >
-
             Login using your Supabase admin account
-
         </p>
 
     </div>
@@ -1245,9 +1251,7 @@ body {
             class="close-btn"
             id="detailCloseBtn"
         >
-
             &times;
-
         </button>
 
 
@@ -1255,9 +1259,7 @@ body {
             class="detail-title"
             id="detailTitle"
         >
-
             Song
-
         </div>
 
 
@@ -1299,11 +1301,8 @@ body {
 
 
         <h2>
-
             <i class="fas fa-plus-circle"></i>
-
             Add New Song
-
         </h2>
 
 
@@ -1421,9 +1420,7 @@ body {
                 class="btn btn-danger"
                 id="logoutBtn"
             >
-
                 Logout
-
             </button>
 
         </div>
@@ -1460,7 +1457,6 @@ body {
 </footer>
 
 
-
 <script>
 
 /* ============================================================
@@ -1472,7 +1468,6 @@ const SUPABASE_URL =
 
 const SUPABASE_PUBLISHABLE_KEY =
     "sb_publishable_D9ppxxYrbWMUsMxTnxdnhA_hQORxcXH";
-
 
 const supabaseClient =
     window.supabase.createClient(
@@ -1501,6 +1496,9 @@ const grid =
 
 const searchInput =
     document.getElementById("searchInput");
+
+const searchClearBtn =
+    document.getElementById("searchClearBtn");
 
 const songCount =
     document.getElementById("songCount");
@@ -1573,7 +1571,7 @@ const detailLink =
 
 
 /* ============================================================
-   THEME
+   THEME DOM
 ============================================================ */
 
 const themeToggleBtn =
@@ -1585,6 +1583,10 @@ const themeIcon =
 const themeText =
     document.getElementById("themeText");
 
+
+/* ============================================================
+   THEME
+============================================================ */
 
 function applyTheme(theme) {
 
@@ -1615,7 +1617,6 @@ function applyTheme(theme) {
             "Switch to Dark Mode";
     }
 
-
     localStorage.setItem(
         "jesusSongsTheme",
         theme
@@ -1625,27 +1626,24 @@ function applyTheme(theme) {
 
 function initializeTheme() {
 
-    const saved =
+    const savedTheme =
         localStorage.getItem(
             "jesusSongsTheme"
         );
 
-
-    if (saved === "dark") {
+    if (savedTheme === "dark") {
 
         applyTheme("dark");
 
         return;
     }
 
-
-    if (saved === "light") {
+    if (savedTheme === "light") {
 
         applyTheme("light");
 
         return;
     }
-
 
     const prefersDark =
         window.matchMedia &&
@@ -1653,28 +1651,23 @@ function initializeTheme() {
             "(prefers-color-scheme: dark)"
         ).matches;
 
-
     applyTheme(
-        prefersDark
-            ? "dark"
-            : "light"
+        prefersDark ? "dark" : "light"
     );
 }
 
 
 themeToggleBtn.addEventListener(
     "click",
-    () => {
+    function() {
 
-        const dark =
+        const isDark =
             document.body.classList.contains(
                 "dark-mode"
             );
 
         applyTheme(
-            dark
-                ? "light"
-                : "dark"
+            isDark ? "light" : "dark"
         );
 
     }
@@ -1682,15 +1675,14 @@ themeToggleBtn.addEventListener(
 
 
 /* ============================================================
-   TELUGU TRANSLITERATION
-   ------------------------------------------------------------
-   IMPORTANT:
-   This is improved for Roman Telugu search.
+   ============================================================
+   IMPROVED TELUGU ROMAN SEARCH ENGINE
+   ============================================================
 ============================================================ */
 
 
 /*
-   Independent vowels
+    Telugu independent vowels
 */
 
 const TELUGU_VOWELS = {
@@ -1702,7 +1694,6 @@ const TELUGU_VOWELS = {
     "ఉ":"u",
     "ఊ":"uu",
     "ఋ":"ru",
-    "ౠ":"ruu",
     "ఎ":"e",
     "ఏ":"ee",
     "ఐ":"ai",
@@ -1714,7 +1705,7 @@ const TELUGU_VOWELS = {
 
 
 /*
-   Consonants
+    Telugu consonants
 */
 
 const TELUGU_CONSONANTS = {
@@ -1760,15 +1751,13 @@ const TELUGU_CONSONANTS = {
     "హ":"h",
 
     "ళ":"l",
-    "ఱ":"r",
-
-    "క్ష":"ksha"
+    "ఱ":"r"
 
 };
 
 
 /*
-   Vowel signs
+    Telugu vowel signs
 */
 
 const TELUGU_SIGNS = {
@@ -1779,7 +1768,6 @@ const TELUGU_SIGNS = {
     "ు":"u",
     "ూ":"uu",
     "ృ":"ru",
-    "ౄ":"ruu",
     "ె":"e",
     "ే":"ee",
     "ై":"ai",
@@ -1791,7 +1779,7 @@ const TELUGU_SIGNS = {
 
 
 /*
-   Special
+    Special characters
 */
 
 const TELUGU_SPECIAL = {
@@ -1804,8 +1792,45 @@ const TELUGU_SPECIAL = {
 
 
 /*
-   Telugu → Roman Telugu
+    Common Telugu combined letters.
+
+    These are handled BEFORE normal character
+    processing.
 */
+
+const TELUGU_COMBINED = {
+
+    "క్ష":"ksha",
+    "జ్ఞ":"gnya",
+    "శ్ర":"shra",
+    "త్ర":"tra",
+    "గ్ర":"gra",
+    "ప్ర":"pra",
+    "క్ర":"kra",
+    "బ్ర":"bra",
+    "ద్ర":"dra",
+    "చ్ర":"chra",
+    "స్ర":"sra",
+    "వ్ర":"vra",
+    "మ్ర":"mra",
+    "ప్ల":"pla",
+    "క్ల":"kla",
+    "గ్ల":"gla",
+    "బ్ల":"bla",
+    "స్ల":"sla",
+    "శ్వ":"shva",
+    "స్వ":"sva",
+    "త్వ":"tva",
+    "ద్వ":"dva",
+    "ధ్వ":"dhva",
+    "న్వ":"nva"
+
+};
+
+
+/* ============================================================
+   TELUGU → ROMAN
+============================================================ */
 
 function transliterateTelugu(text) {
 
@@ -1813,14 +1838,12 @@ function transliterateTelugu(text) {
         return "";
     }
 
+    let result = "";
 
     const chars =
         Array.from(
             String(text)
         );
-
-
-    let result = "";
 
 
     for (
@@ -1829,12 +1852,34 @@ function transliterateTelugu(text) {
         i++
     ) {
 
-        const char =
+        let char =
             chars[i];
 
 
         /*
-           Independent vowel
+            Handle combined letters
+        */
+
+        const pair =
+            char +
+            (chars[i + 1] || "");
+
+
+        if (
+            TELUGU_COMBINED[pair]
+        ) {
+
+            result +=
+                TELUGU_COMBINED[pair];
+
+            i++;
+
+            continue;
+        }
+
+
+        /*
+            Independent vowel
         */
 
         if (
@@ -1849,7 +1894,7 @@ function transliterateTelugu(text) {
 
 
         /*
-           Special
+            Special character
         */
 
         if (
@@ -1864,35 +1909,19 @@ function transliterateTelugu(text) {
 
 
         /*
-           Virama
-        */
-
-        if (char === "్") {
-
-            continue;
-        }
-
-
-        /*
-           Conjunct "క్ష"
+            Virama
         */
 
         if (
-            char === "క" &&
-            chars[i + 1] === "్" &&
-            chars[i + 2] === "ష"
+            char === "్"
         ) {
-
-            result += "ksha";
-
-            i += 2;
 
             continue;
         }
 
 
         /*
-           Normal consonant
+            Consonant
         */
 
         if (
@@ -1902,13 +1931,12 @@ function transliterateTelugu(text) {
             const consonant =
                 TELUGU_CONSONANTS[char];
 
-
             const next =
                 chars[i + 1];
 
 
             /*
-               Vowel sign
+                Vowel sign
             */
 
             if (
@@ -1927,7 +1955,7 @@ function transliterateTelugu(text) {
 
 
             /*
-               Virama
+                Explicit virama
             */
 
             if (
@@ -1944,7 +1972,8 @@ function transliterateTelugu(text) {
 
 
             /*
-               Default Telugu vowel = a
+                Telugu consonants normally
+                carry an "a".
             */
 
             result +=
@@ -1955,7 +1984,7 @@ function transliterateTelugu(text) {
 
 
         /*
-           Everything else
+            Anything else
         */
 
         result += char;
@@ -1964,7 +1993,6 @@ function transliterateTelugu(text) {
 
 
     return result;
-
 }
 
 
@@ -1972,14 +2000,13 @@ function transliterateTelugu(text) {
    SEARCH NORMALIZATION
 ============================================================ */
 
+function basicNormalize(text) {
 
-/*
-   Basic text cleanup
-*/
+    if (!text) {
+        return "";
+    }
 
-function normalizeBasic(text) {
-
-    return String(text ?? "")
+    return String(text)
 
         .toLowerCase()
 
@@ -1991,12 +2018,80 @@ function normalizeBasic(text) {
         )
 
         .replace(
-            /[’'`]/g,
+            /[\u200B-\u200D\uFEFF]/g,
             ""
         )
 
         .replace(
-            /[^a-z0-9\u0C00-\u0C7F]+/gi,
+            /\s+/g,
+            " "
+        )
+
+        .trim();
+}
+
+
+/* ============================================================
+   ROMAN CANONICAL FORM
+============================================================ */
+
+function romanCanonical(text) {
+
+    if (!text) {
+        return "";
+    }
+
+
+    let value =
+        basicNormalize(text);
+
+
+    /*
+        Convert common alternate spellings
+        into a single searchable form.
+    */
+
+    value =
+        value
+
+        .replace(/aa/g,"a")
+        .replace(/ee/g,"e")
+        .replace(/ii/g,"i")
+        .replace(/uu/g,"u")
+        .replace(/oo/g,"o")
+
+        .replace(/ksh/g,"x")
+        .replace(/chh/g,"ch")
+
+        .replace(/kh/g,"k")
+        .replace(/gh/g,"g")
+        .replace(/jh/g,"j")
+        .replace(/th/g,"t")
+        .replace(/dh/g,"d")
+        .replace(/bh/g,"b")
+        .replace(/ph/g,"p")
+
+        .replace(/sh/g,"s")
+        .replace(/zh/g,"j")
+
+        /*
+            v/w are often typed differently
+        */
+
+        .replace(/w/g,"v")
+
+        /*
+            y variations
+        */
+
+        .replace(/yy/g,"y")
+
+        /*
+            Remove punctuation
+        */
+
+        .replace(
+            /[^a-z0-9\u0C00-\u0C7F\s]/g,
             " "
         )
 
@@ -2007,127 +2102,100 @@ function normalizeBasic(text) {
 
         .trim();
 
-}
-
-
-/*
-   Roman Telugu canonical form.
-
-   Example:
-
-   amma
-   ammaa
-   aamaa
-   ammmaa
-
-   become much easier to compare.
-*/
-
-function canonicalRoman(text) {
-
-    let value =
-        normalizeBasic(text);
-
-
-    /*
-       Common phonetic replacements
-    */
-
-    value =
-        value
-
-        .replace(/aa+/g, "a")
-        .replace(/ee+/g, "i")
-        .replace(/ii+/g, "i")
-        .replace(/oo+/g, "o")
-        .replace(/uu+/g, "u")
-
-        .replace(/chh/g, "ch")
-        .replace(/kh/g, "k")
-        .replace(/gh/g, "g")
-        .replace(/jh/g, "j")
-        .replace(/dh/g, "d")
-        .replace(/bh/g, "b")
-        .replace(/ph/g, "p")
-        .replace(/th/g, "t")
-
-        .replace(/sh/g, "s")
-
-        .replace(/zh/g, "j");
-
-
-    /*
-       Telugu typing commonly uses
-       "ee" / "e", "oo" / "o"
-    */
-
-    value =
-        value
-        .replace(/e+/g, "e")
-        .replace(/i+/g, "i")
-        .replace(/o+/g, "o")
-        .replace(/u+/g, "u");
-
-
-    /*
-       Remove duplicate consonants.
-
-       Example:
-       amma → ama
-       rammaa → rama
-    */
-
-    value =
-        value.replace(
-            /([bcdfghjklmnpqrstvwxyz])\1+/g,
-            "$1"
-        );
-
 
     return value;
-
-}
-
-
-/*
-   Convert text into searchable form.
-*/
-
-function buildSearchVariants(text) {
-
-    const original =
-        normalizeBasic(text);
-
-
-    const teluguRoman =
-        canonicalRoman(
-            transliterateTelugu(text)
-        );
-
-
-    const directRoman =
-        canonicalRoman(text);
-
-
-    return [
-
-        original,
-
-        teluguRoman,
-
-        directRoman
-
-    ]
-
-        .filter(Boolean)
-
-        .join(" ");
-
 }
 
 
 /* ============================================================
-   SEARCH DATA
+   SEARCH FORM GENERATOR
+============================================================ */
+
+function generateRomanVariants(text) {
+
+    const normalized =
+        basicNormalize(text);
+
+
+    const teluguRoman =
+        transliterateTelugu(
+            normalized
+        );
+
+
+    const variants = new Set();
+
+
+    variants.add(
+        basicNormalize(
+            normalized
+        )
+    );
+
+
+    variants.add(
+        basicNormalize(
+            teluguRoman
+        )
+    );
+
+
+    variants.add(
+        romanCanonical(
+            normalized
+        )
+    );
+
+
+    variants.add(
+        romanCanonical(
+            teluguRoman
+        )
+    );
+
+
+    /*
+        Extra variants
+    */
+
+    const base =
+        basicNormalize(
+            teluguRoman
+        );
+
+
+    if (base) {
+
+        variants.add(
+            base
+                .replace(/aa/g,"a")
+                .replace(/ee/g,"e")
+                .replace(/ii/g,"i")
+                .replace(/uu/g,"u")
+                .replace(/oo/g,"o")
+        );
+
+
+        variants.add(
+            base
+                .replace(/a/g,"aa")
+                .replace(/e/g,"ee")
+                .replace(/i/g,"ii")
+                .replace(/u/g,"uu")
+                .replace(/o/g,"oo")
+        );
+
+    }
+
+
+    return [
+        ...variants
+    ].filter(Boolean);
+}
+
+
+/* ============================================================
+   SONG SEARCH DATA
 ============================================================ */
 
 function createSongSearchData(song) {
@@ -2145,7 +2213,7 @@ function createSongSearchData(song) {
         song.artist || "";
 
 
-    const fullText =
+    const combined =
         [
             title,
             lyrics,
@@ -2154,235 +2222,422 @@ function createSongSearchData(song) {
         ].join(" ");
 
 
-    return {
-
-        raw:
-            normalizeBasic(fullText),
-
-        searchable:
-            buildSearchVariants(fullText),
-
-        title:
-            buildSearchVariants(title),
-
-        lyrics:
-            buildSearchVariants(lyrics),
-
-        category:
-            buildSearchVariants(category),
-
-        artist:
-            buildSearchVariants(artist)
-
-    };
-
-}
-
-
-/* ============================================================
-   SEARCH TOKENIZATION
-============================================================ */
-
-function getSearchTokens(query) {
-
-    const raw =
-        normalizeBasic(query);
-
-
-    if (!raw) {
-        return [];
-    }
-
-
-    return raw
-        .split(/\s+/)
-        .filter(Boolean);
-
-}
-
-
-/* ============================================================
-   SEARCH WORD VARIANTS
-============================================================ */
-
-function getWordVariants(word) {
+    /*
+        Original text
+    */
 
     const original =
-        normalizeBasic(word);
-
-
-    const romanFromTelugu =
-        canonicalRoman(
-            transliterateTelugu(word)
+        basicNormalize(
+            combined
         );
 
 
-    const directRoman =
-        canonicalRoman(word);
+    /*
+        Telugu → Roman
+    */
 
+    const teluguRoman =
+        basicNormalize(
+            transliterateTelugu(
+                combined
+            )
+        );
+
+
+    /*
+        Canonical Roman
+    */
+
+    const canonicalOriginal =
+        romanCanonical(
+            combined
+        );
+
+
+    const canonicalRoman =
+        romanCanonical(
+            teluguRoman
+        );
+
+
+    /*
+        Create variants
+    */
 
     const variants = new Set();
 
 
-    if (original) {
-        variants.add(original);
-    }
+    generateRomanVariants(
+        combined
+    ).forEach(
+        value =>
+            variants.add(value)
+    );
 
 
-    if (romanFromTelugu) {
-        variants.add(romanFromTelugu);
-    }
+    generateRomanVariants(
+        teluguRoman
+    ).forEach(
+        value =>
+            variants.add(value)
+    );
 
 
-    if (directRoman) {
-        variants.add(directRoman);
-    }
+    return {
 
+        original,
 
-    /*
-       Add direct simplified versions
-    */
+        teluguRoman,
 
-    for (
-        const value of Array.from(variants)
-    ) {
+        canonicalOriginal,
 
-        variants.add(
-            canonicalRoman(value)
-        );
+        canonicalRoman,
 
-    }
+        variants:[
+            ...variants
+        ]
 
-
-    return Array.from(
-        variants
-    ).filter(Boolean);
-
+    };
 }
 
 
 /* ============================================================
-   SEARCH MATCH
+   TOKEN SEARCH
 ============================================================ */
 
-function songMatchesSearch(song, query) {
+function tokenize(text) {
 
-    if (!query || !query.trim()) {
+    return basicNormalize(text)
 
-        return true;
+        .split(/\s+/)
 
+        .map(
+            x => x.trim()
+        )
+
+        .filter(Boolean);
+}
+
+
+/* ============================================================
+   PHONETIC TOKEN
+============================================================ */
+
+function phoneticToken(word) {
+
+    if (!word) {
+        return "";
     }
 
 
-    const tokens =
-        getSearchTokens(query);
-
-
-    if (!tokens.length) {
-
-        return true;
-
-    }
-
-
-    const data =
-        createSongSearchData(song);
+    let value =
+        romanCanonical(
+            word
+        );
 
 
     /*
-       Every word typed by user must
-       match somewhere in the song.
+        Remove very common pronunciation
+        differences.
     */
 
-    return tokens.every(token => {
+    value =
+        value
 
-        const variants =
-            getWordVariants(token);
+        .replace(/v/g,"b")
+        .replace(/q/g,"k")
+        .replace(/c/g,"k")
+        .replace(/z/g,"j")
+
+        .replace(/h+/g,"h")
+
+        .replace(
+            /(.)\1+/g,
+            "$1"
+        );
 
 
-        return variants.some(variant => {
+    return value;
+}
 
-            /*
-               Exact searchable substring
-            */
 
-            if (
-                data.searchable.includes(
-                    variant
+/* ============================================================
+   WORD MATCH
+============================================================ */
+
+function searchWordMatches(
+    word,
+    searchData
+) {
+
+    const originalWord =
+        basicNormalize(
+            word
+        );
+
+
+    if (!originalWord) {
+        return true;
+    }
+
+
+    /*
+        Telugu query:
+        యేసయ్య
+    */
+
+    const queryRoman =
+        transliterateTelugu(
+            originalWord
+        );
+
+
+    /*
+        Canonical:
+        yesayya → yesaya
+    */
+
+    const queryCanonical =
+        romanCanonical(
+            originalWord
+        );
+
+
+    const queryRomanCanonical =
+        romanCanonical(
+            queryRoman
+        );
+
+
+    const queryPhonetic =
+        phoneticToken(
+            queryRoman ||
+            originalWord
+        );
+
+
+    /*
+        Direct original match
+    */
+
+    if (
+        searchData.original
+            .includes(originalWord)
+    ) {
+
+        return true;
+    }
+
+
+    /*
+        Roman match
+    */
+
+    if (
+        searchData.teluguRoman
+            .includes(
+                basicNormalize(
+                    queryRoman
                 )
+            )
+    ) {
+
+        return true;
+    }
+
+
+    /*
+        Canonical match
+    */
+
+    if (
+        searchData.canonicalOriginal
+            .includes(
+                queryCanonical
+            )
+    ) {
+
+        return true;
+    }
+
+
+    if (
+        searchData.canonicalRoman
+            .includes(
+                queryRomanCanonical
+            )
+    ) {
+
+        return true;
+    }
+
+
+    /*
+        Search all variants
+    */
+
+    for (
+        const variant
+        of searchData.variants
+    ) {
+
+        if (
+            variant.includes(
+                originalWord
+            )
+        ) {
+
+            return true;
+        }
+
+
+        if (
+            queryRoman &&
+            variant.includes(
+                basicNormalize(
+                    queryRoman
+                )
+            )
+        ) {
+
+            return true;
+        }
+
+
+        if (
+            queryCanonical &&
+            variant.includes(
+                queryCanonical
+            )
+        ) {
+
+            return true;
+        }
+
+
+        if (
+            queryRomanCanonical &&
+            variant.includes(
+                queryRomanCanonical
+            )
+        ) {
+
+            return true;
+        }
+
+    }
+
+
+    /*
+        Phonetic token matching
+    */
+
+    if (queryPhonetic) {
+
+        for (
+            const variant
+            of searchData.variants
+        ) {
+
+            const variantWords =
+                tokenize(
+                    variant
+                );
+
+
+            for (
+                const variantWord
+                of variantWords
             ) {
 
-                return true;
+                const vp =
+                    phoneticToken(
+                        variantWord
+                    );
+
+
+                if (
+                    vp &&
+                    (
+                        vp.includes(
+                            queryPhonetic
+                        )
+                        ||
+                        queryPhonetic.includes(
+                            vp
+                        )
+                    )
+                ) {
+
+                    return true;
+                }
 
             }
 
+        }
 
-            /*
-               Title match
-            */
-
-            if (
-                data.title.includes(
-                    variant
-                )
-            ) {
-
-                return true;
-
-            }
+    }
 
 
-            /*
-               Lyrics match
-            */
-
-            if (
-                data.lyrics.includes(
-                    variant
-                )
-            ) {
-
-                return true;
-
-            }
+    return false;
+}
 
 
-            /*
-               Category match
-            */
+/* ============================================================
+   FINAL SONG SEARCH
+============================================================ */
 
-            if (
-                data.category.includes(
-                    variant
-                )
-            ) {
+function songMatchesSearch(
+    song,
+    query
+) {
 
-                return true;
-
-            }
-
-
-            /*
-               Artist match
-            */
-
-            if (
-                data.artist.includes(
-                    variant
-                )
-            ) {
-
-                return true;
-
-            }
+    if (!query) {
+        return true;
+    }
 
 
-            return false;
+    const normalizedQuery =
+        basicNormalize(
+            query
+        );
 
-        });
 
-    });
+    if (!normalizedQuery) {
+        return true;
+    }
 
+
+    const searchData =
+        createSongSearchData(
+            song
+        );
+
+
+    /*
+        Important:
+        Search each word separately.
+
+        Example:
+
+        "yesayya song"
+
+        Both words must exist somewhere.
+    */
+
+    const words =
+        tokenize(
+            normalizedQuery
+        );
+
+
+    return words.every(
+        word =>
+            searchWordMatches(
+                word,
+                searchData
+            )
+    );
 }
 
 
@@ -2401,11 +2656,8 @@ async function loadSongs() {
         error
     } =
         await supabaseClient
-
             .from("songs")
-
             .select("*")
-
             .order(
                 "id",
                 {
@@ -2427,21 +2679,15 @@ async function loadSongs() {
             <div class="no-results">
 
                 <div class="no-results-icon">
-
                     <i class="fas fa-exclamation-triangle"></i>
-
                 </div>
 
                 <div class="no-results-title">
-
                     Unable to load songs
-
                 </div>
 
                 <div class="no-results-text">
-
                     Please try again later.
-
                 </div>
 
             </div>
@@ -2452,9 +2698,7 @@ async function loadSongs() {
         songCount.textContent =
             "0 songs";
 
-
         return;
-
     }
 
 
@@ -2477,11 +2721,11 @@ async function loadSongs() {
 
 function renderSongs() {
 
-    /*
-       Database empty
-    */
+    const q =
+        searchQuery.trim();
 
-    if (!songs.length) {
+
+    if (songs.length === 0) {
 
         songCount.textContent =
             "0 songs";
@@ -2492,21 +2736,15 @@ function renderSongs() {
             <div class="no-results">
 
                 <div class="no-results-icon">
-
                     <i class="fas fa-music"></i>
-
                 </div>
 
                 <div class="no-results-title">
-
                     No data found
-
                 </div>
 
                 <div class="no-results-text">
-
                     Admin hasn't added any songs yet.
-
                 </div>
 
             </div>
@@ -2514,20 +2752,16 @@ function renderSongs() {
         `;
 
         return;
-
     }
 
 
-    const q =
-        searchQuery.trim();
-
-
     const filtered =
-        songs.filter(song =>
-            songMatchesSearch(
-                song,
-                q
-            )
+        songs.filter(
+            song =>
+                songMatchesSearch(
+                    song,
+                    q
+                )
         );
 
 
@@ -2539,32 +2773,22 @@ function renderSongs() {
         }`;
 
 
-    /*
-       No match
-    */
-
-    if (!filtered.length) {
+    if (filtered.length === 0) {
 
         grid.innerHTML = `
 
             <div class="no-results">
 
                 <div class="no-results-icon">
-
                     <i class="fas fa-search"></i>
-
                 </div>
 
                 <div class="no-results-title">
-
                     No matching songs found
-
                 </div>
 
                 <div class="no-results-text">
-
-                    Try English, Roman Telugu or Telugu words.
-
+                    Try Telugu, English or Roman Telugu.
                 </div>
 
             </div>
@@ -2572,118 +2796,115 @@ function renderSongs() {
         `;
 
         return;
-
     }
 
 
-    /*
-       Render cards
-    */
-
     grid.innerHTML =
-        filtered.map(song => {
+        filtered
+            .map(
+                song => {
 
-            const preview =
-                (song.lyrics || "")
-
-                    .split("\n")
-
-                    .map(x => x.trim())
-
-                    .find(Boolean)
-
-                    || "...";
-
-
-            const link =
-                song.audio_url || "";
+                    const preview =
+                        (song.lyrics || "")
+                            .split("\n")
+                            .filter(
+                                x =>
+                                    x.trim() !== ""
+                            )[0]
+                            || "...";
 
 
-            return `
-
-                <div
-                    class="song-card"
-                    data-id="${escapeAttribute(song.id)}"
-                >
-
-                    <div class="song-card-header">
-
-                        <span class="song-title">
-
-                            <i class="fas fa-music"></i>
-
-                            ${escapeHTML(
-                                song.title
-                            )}
-
-                        </span>
-
-                    </div>
+                    const link =
+                        song.audio_url || "";
 
 
-                    <div class="song-card-body">
+                    return `
 
-                        <div class="song-preview">
+                        <div
+                            class="song-card"
+                            data-id="${escapeAttribute(song.id)}"
+                        >
 
-                            ${escapeHTML(
-                                preview
-                            )}
+                            <div class="song-card-header">
+
+                                <span class="song-title">
+
+                                    <i class="fas fa-music"></i>
+
+                                    ${escapeHTML(
+                                        song.title
+                                    )}
+
+                                </span>
+
+                            </div>
+
+
+                            <div class="song-card-body">
+
+                                <div class="song-preview">
+
+                                    ${escapeHTML(
+                                        preview
+                                    )}
+
+                                </div>
+
+                            </div>
+
+
+                            ${
+                                link
+                                ?
+                                `
+
+                                <div class="song-link">
+
+                                    <a
+                                        href="${escapeAttribute(link)}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+
+                                        <i class="fas fa-play-circle"></i>
+
+                                        Play / Watch
+
+                                    </a>
+
+                                </div>
+
+                                `
+                                :
+                                ""
+                            }
+
+
+                            <div class="song-footer">
+
+                                <span>
+
+                                    <i class="far fa-eye"></i>
+
+                                    Tap to view full
+
+                                </span>
+
+
+                                <i
+                                    class="fas fa-arrow-right"
+                                    style="color:var(--primary-dark);"
+                                ></i>
+
+                            </div>
 
                         </div>
 
-                    </div>
+                    `;
 
-
-                    ${
-                        link
-                        ?
-                        `
-
-                        <div class="song-link">
-
-                            <a
-                                href="${escapeAttribute(link)}"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-
-                                <i class="fas fa-play-circle"></i>
-
-                                Play / Watch
-
-                            </a>
-
-                        </div>
-
-                        `
-                        :
-                        ""
-                    }
-
-
-                    <div class="song-footer">
-
-                        <span>
-
-                            <i class="far fa-eye"></i>
-
-                            Tap to view full
-
-                        </span>
-
-
-                        <i
-                            class="fas fa-arrow-right"
-                            style="color:var(--primary-dark);"
-                        ></i>
-
-                    </div>
-
-                </div>
-
-            `;
-
-        }).join("");
+                }
+            )
+            .join("");
 
 }
 
@@ -2699,148 +2920,151 @@ function renderAdminList() {
         adminSongList.innerHTML = "";
 
         return;
-
     }
 
 
-    if (!songs.length) {
+    if (songs.length === 0) {
 
         adminSongList.innerHTML = `
 
             <p style="color:var(--muted-text);">
-
                 No songs added yet.
-
             </p>
 
         `;
 
         return;
-
     }
 
 
     adminSongList.innerHTML =
-        songs.map(song => {
+        songs
+            .map(
+                song => {
 
-            const editing =
-                Number(editingSongId.value)
-                === Number(song.id);
+                    const isEditing =
+                        Number(
+                            editingSongId.value
+                        )
+                        ===
+                        Number(song.id);
 
 
-            return `
+                    return `
 
-                <div class="admin-song-item">
+                        <div class="admin-song-item">
 
-                    <span>
+                            <span>
 
-                        ${escapeHTML(
-                            song.title
-                        )}
+                                ${escapeHTML(
+                                    song.title
+                                )}
 
-                        ${
-                            editing
-                            ?
-                            `
-                            <span class="edit-badge">
-
-                                Editing
+                                ${
+                                    isEditing
+                                    ?
+                                    `
+                                    <span class="edit-badge">
+                                        Editing
+                                    </span>
+                                    `
+                                    :
+                                    ""
+                                }
 
                             </span>
-                            `
-                            :
-                            ""
-                        }
-
-                    </span>
 
 
-                    <div class="actions">
+                            <div class="actions">
 
-                        <button
-                            class="btn btn-edit edit-song"
-                            data-id="${escapeAttribute(song.id)}"
-                            style="
-                            padding:.25rem .8rem;
-                            font-size:.8rem;
-                            "
-                        >
+                                <button
+                                    class="btn btn-edit edit-song"
+                                    data-id="${escapeAttribute(song.id)}"
+                                    style="
+                                    padding:.25rem .8rem;
+                                    font-size:.8rem;
+                                    "
+                                >
 
-                            <i class="fas fa-pen"></i>
+                                    <i class="fas fa-pen"></i>
+                                    Edit
 
-                            Edit
-
-                        </button>
+                                </button>
 
 
-                        <button
-                            class="btn btn-danger delete-song"
-                            data-id="${escapeAttribute(song.id)}"
-                            style="
-                            padding:.25rem .8rem;
-                            font-size:.8rem;
-                            "
-                        >
+                                <button
+                                    class="btn btn-danger delete-song"
+                                    data-id="${escapeAttribute(song.id)}"
+                                    style="
+                                    padding:.25rem .8rem;
+                                    font-size:.8rem;
+                                    "
+                                >
 
-                            <i class="fas fa-trash"></i>
+                                    <i class="fas fa-trash"></i>
+                                    Delete
 
-                            Delete
+                                </button>
 
-                        </button>
+                            </div>
 
-                    </div>
+                        </div>
 
-                </div>
+                    `;
 
-            `;
-
-        }).join("");
+                }
+            )
+            .join("");
 
 
     document
         .querySelectorAll(".edit-song")
-        .forEach(button => {
+        .forEach(
+            button => {
 
-            button.addEventListener(
-                "click",
-                () => {
+                button.addEventListener(
+                    "click",
+                    function() {
 
-                    startEditSong(
-                        Number(
-                            button.dataset.id
-                        )
-                    );
+                        startEditSong(
+                            Number(
+                                this.dataset.id
+                            )
+                        );
 
-                }
-            );
+                    }
+                );
 
-        });
+            }
+        );
 
 
     document
         .querySelectorAll(".delete-song")
-        .forEach(button => {
+        .forEach(
+            button => {
 
-            button.addEventListener(
-                "click",
-                () => {
+                button.addEventListener(
+                    "click",
+                    function() {
 
-                    deleteSong(
-                        Number(
-                            button.dataset.id
-                        )
-                    );
+                        deleteSong(
+                            Number(
+                                this.dataset.id
+                            )
+                        );
 
-                }
-            );
+                    }
+                );
 
-        });
+            }
+        );
 
 }
 
 
 /* ============================================================
-   SONG DETAIL
+   DETAIL
 ============================================================ */
 
 function openDetail(song) {
@@ -2849,7 +3073,9 @@ function openDetail(song) {
 
         <i class="fas fa-music"></i>
 
-        ${escapeHTML(song.title)}
+        ${escapeHTML(
+            song.title
+        )}
 
     `;
 
@@ -2864,9 +3090,7 @@ function openDetail(song) {
         detailLink.innerHTML = `
 
             <a
-                href="${escapeAttribute(
-                    song.audio_url
-                )}"
+                href="${escapeAttribute(song.audio_url)}"
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -2928,7 +3152,6 @@ async function login() {
             "Please enter email and password.";
 
         return;
-
     }
 
 
@@ -2944,6 +3167,7 @@ async function login() {
             .signInWithPassword({
 
                 email,
+
                 password
 
             });
@@ -2954,10 +3178,10 @@ async function login() {
         console.error(error);
 
         loginError.textContent =
-            "❌ " + error.message;
+            "❌ " +
+            error.message;
 
         return;
-
     }
 
 
@@ -2976,7 +3200,6 @@ async function login() {
 
 
     setAdminButton();
-
 
     renderAdminList();
 
@@ -3002,7 +3225,6 @@ function setAdminButton() {
 
     adminToggleBtn.style.color =
         "#fff";
-
 }
 
 
@@ -3016,7 +3238,6 @@ function resetAdminButton() {
 
     adminToggleBtn.style.color =
         "";
-
 }
 
 
@@ -3030,9 +3251,11 @@ async function logout() {
 
     currentUser = null;
 
+
     adminPanel.classList.remove(
         "active"
     );
+
 
     resetAdminButton();
 
@@ -3056,7 +3279,6 @@ async function addSong() {
         );
 
         return;
-
     }
 
 
@@ -3068,10 +3290,11 @@ async function addSong() {
 
     if (editId) {
 
-        await updateSong(editId);
+        await updateSong(
+            editId
+        );
 
         return;
-
     }
 
 
@@ -3095,7 +3318,6 @@ async function addSong() {
         );
 
         return;
-
     }
 
 
@@ -3110,24 +3332,26 @@ async function addSong() {
         error
     } =
         await supabaseClient
-
             .from("songs")
+            .insert([
 
-            .insert([{
+                {
 
-                title:title,
+                    title,
 
-                artist:"Jesus Songs",
+                    artist:"Jesus Songs",
 
-                lyrics:lyrics,
+                    lyrics,
 
-                audio_url:
-                    link || null,
+                    audio_url:
+                        link || null,
 
-                category:
-                    category || "Worship"
+                    category:
+                        category || "Worship"
 
-            }]);
+                }
+
+            ]);
 
 
     addSongBtn.disabled = false;
@@ -3147,7 +3371,6 @@ async function addSong() {
         );
 
         return;
-
     }
 
 
@@ -3183,7 +3406,6 @@ function startEditSong(id) {
         );
 
         return;
-
     }
 
 
@@ -3202,7 +3424,6 @@ function startEditSong(id) {
         );
 
         return;
-
     }
 
 
@@ -3233,7 +3454,8 @@ function startEditSong(id) {
 
     formStatus.textContent =
         `Editing: ${
-            song.title || "Untitled song"
+            song.title ||
+            "Untitled song"
         }`;
 
 
@@ -3277,7 +3499,6 @@ function cancelEdit() {
 
     addSongBtn.disabled = false;
 
-
     addSongBtn.innerHTML =
         `<i class="fas fa-save"></i> Add Song`;
 
@@ -3289,7 +3510,6 @@ function cancelEdit() {
 
 
     formStatus.textContent = "";
-
 
     renderAdminList();
 
@@ -3309,7 +3529,6 @@ async function updateSong(id) {
         );
 
         return;
-
     }
 
 
@@ -3333,7 +3552,6 @@ async function updateSong(id) {
         );
 
         return;
-
     }
 
 
@@ -3346,18 +3564,24 @@ async function updateSong(id) {
         `<i class="fas fa-spinner fa-spin"></i> Updating...`;
 
 
+    formStatus.textContent =
+        "Updating song...";
+
+
+    formStatus.style.color =
+        "#2471a3";
+
+
     const {
         error
     } =
         await supabaseClient
-
             .from("songs")
-
             .update({
 
-                title:title,
+                title,
 
-                lyrics:lyrics,
+                lyrics,
 
                 audio_url:
                     link || null,
@@ -3366,7 +3590,6 @@ async function updateSong(id) {
                     category || "Worship"
 
             })
-
             .eq(
                 "id",
                 id
@@ -3382,9 +3605,11 @@ async function updateSong(id) {
 
         console.error(error);
 
+
         formStatus.textContent =
             "❌ Update failed: " +
             error.message;
+
 
         formStatus.style.color =
             "#c0392b";
@@ -3393,8 +3618,8 @@ async function updateSong(id) {
         addSongBtn.innerHTML =
             `<i class="fas fa-save"></i> Update Song`;
 
-        return;
 
+        return;
     }
 
 
@@ -3423,7 +3648,6 @@ async function deleteSong(id) {
         );
 
         return;
-
     }
 
 
@@ -3434,9 +3658,7 @@ async function deleteSong(id) {
 
 
     if (!confirmed) {
-
         return;
-
     }
 
 
@@ -3444,11 +3666,8 @@ async function deleteSong(id) {
         error
     } =
         await supabaseClient
-
             .from("songs")
-
             .delete()
-
             .eq(
                 "id",
                 id
@@ -3465,13 +3684,15 @@ async function deleteSong(id) {
         );
 
         return;
-
     }
 
 
     if (
-        Number(editingSongId.value)
-        === Number(id)
+        Number(
+            editingSongId.value
+        )
+        ===
+        Number(id)
     ) {
 
         cancelEdit();
@@ -3490,7 +3711,7 @@ async function deleteSong(id) {
 
 
 /* ============================================================
-   SEARCH
+   SEARCH INPUT
 ============================================================ */
 
 searchInput.addEventListener(
@@ -3501,6 +3722,31 @@ searchInput.addEventListener(
             this.value;
 
 
+        /*
+            Show / hide clear button
+        */
+
+        if (
+            this.value.trim()
+        ) {
+
+            searchClearBtn.classList.add(
+                "show"
+            );
+
+        } else {
+
+            searchClearBtn.classList.remove(
+                "show"
+            );
+
+        }
+
+
+        /*
+            Render immediately
+        */
+
         renderSongs();
 
     }
@@ -3508,7 +3754,32 @@ searchInput.addEventListener(
 
 
 /* ============================================================
-   ADMIN
+   CLEAR SEARCH
+============================================================ */
+
+searchClearBtn.addEventListener(
+    "click",
+    function() {
+
+        searchInput.value = "";
+
+        searchQuery = "";
+
+        this.classList.remove(
+            "show"
+        );
+
+
+        searchInput.focus();
+
+        renderSongs();
+
+    }
+);
+
+
+/* ============================================================
+   ADMIN BUTTON
 ============================================================ */
 
 adminToggleBtn.addEventListener(
@@ -3520,7 +3791,6 @@ adminToggleBtn.addEventListener(
             await logout();
 
             return;
-
         }
 
 
@@ -3529,9 +3799,7 @@ adminToggleBtn.addEventListener(
         );
 
 
-        loginError.textContent =
-            "";
-
+        loginError.textContent = "";
 
         loginEmail.focus();
 
@@ -3551,9 +3819,11 @@ loginBtn.addEventListener(
 
 loginPassword.addEventListener(
     "keydown",
-    e => {
+    function(e) {
 
-        if (e.key === "Enter") {
+        if (
+            e.key === "Enter"
+        ) {
 
             login();
 
@@ -3565,9 +3835,11 @@ loginPassword.addEventListener(
 
 loginEmail.addEventListener(
     "keydown",
-    e => {
+    function(e) {
 
-        if (e.key === "Enter") {
+        if (
+            e.key === "Enter"
+        ) {
 
             login();
 
@@ -3583,9 +3855,11 @@ loginEmail.addEventListener(
 
 loginOverlay.addEventListener(
     "click",
-    e => {
+    function(e) {
 
-        if (e.target === loginOverlay) {
+        if (
+            e.target === this
+        ) {
 
             loginOverlay.classList.remove(
                 "active"
@@ -3609,9 +3883,11 @@ detailCloseBtn.addEventListener(
 
 detailOverlay.addEventListener(
     "click",
-    e => {
+    function(e) {
 
-        if (e.target === detailOverlay) {
+        if (
+            e.target === this
+        ) {
 
             closeDetail();
 
@@ -3622,14 +3898,16 @@ detailOverlay.addEventListener(
 
 
 /* ============================================================
-   ESC
+   ESCAPE
 ============================================================ */
 
 document.addEventListener(
     "keydown",
-    e => {
+    function(e) {
 
-        if (e.key !== "Escape") {
+        if (
+            e.key !== "Escape"
+        ) {
             return;
         }
 
@@ -3667,9 +3945,11 @@ document.addEventListener(
 
 grid.addEventListener(
     "click",
-    e => {
+    function(e) {
 
-        if (e.target.closest("a")) {
+        if (
+            e.target.closest("a")
+        ) {
 
             return;
 
@@ -3683,9 +3963,7 @@ grid.addEventListener(
 
 
         if (!card) {
-
             return;
-
         }
 
 
@@ -3714,7 +3992,7 @@ grid.addEventListener(
 
 
 /* ============================================================
-   ADD / EDIT
+   FORM EVENTS
 ============================================================ */
 
 addSongBtn.addEventListener(
@@ -3729,10 +4007,6 @@ cancelEditBtn.addEventListener(
 );
 
 
-/* ============================================================
-   LOGOUT
-============================================================ */
-
 logoutBtn.addEventListener(
     "click",
     logout
@@ -3745,45 +4019,49 @@ logoutBtn.addEventListener(
 
 function escapeHTML(value) {
 
-    return String(value ?? "")
+    return String(
+        value ?? ""
+    )
 
-        .replace(
-            /&/g,
-            "&amp;"
-        )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
 
-        .replace(
-            /</g,
-            "&lt;"
-        )
+    .replace(
+        /</g,
+        "&lt;"
+    )
 
-        .replace(
-            />/g,
-            "&gt;"
-        )
+    .replace(
+        />/g,
+        "&gt;"
+    )
 
-        .replace(
-            /"/g,
-            "&quot;"
-        )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
 
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+    .replace(
+        /'/g,
+        "&#039;"
+    );
 
 }
 
 
 function escapeAttribute(value) {
 
-    return escapeHTML(value);
+    return escapeHTML(
+        value
+    );
 
 }
 
 
 /* ============================================================
-   CHECK USER
+   CHECK LOGIN
 ============================================================ */
 
 async function checkUser() {
@@ -3817,7 +4095,7 @@ async function checkUser() {
 
 
 /* ============================================================
-   INIT
+   START
 ============================================================ */
 
 async function init() {
