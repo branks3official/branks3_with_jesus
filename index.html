@@ -2318,9 +2318,71 @@ async function loadSongs() {
 
 function renderSongs() {
 
-    const q =
-        searchQuery;
+    const q = searchQuery.trim();
 
+
+    /* ========================================================
+       CASE 1:
+       DATABASE LO ASALU SONGS LEVU
+    ======================================================== */
+
+    if (!songs || songs.length === 0) {
+
+        songCount.textContent = "0 songs";
+
+        grid.innerHTML = `
+
+            <div class="no-results">
+
+                <i
+                    class="fas fa-music"
+                    style="
+                    font-size:3rem;
+                    opacity:.45;
+                    margin-bottom:1rem;
+                    "
+                ></i>
+
+                <h2
+                    style="
+                    margin-bottom:.6rem;
+                    color:var(--title-color);
+                    "
+                >
+                    No songs available
+                </h2>
+
+                <p
+                    style="
+                    font-size:.95rem;
+                    line-height:1.6;
+                    "
+                >
+                    The admin has not added any songs yet.
+                </p>
+
+                <small
+                    style="
+                    display:block;
+                    margin-top:.6rem;
+                    color:var(--muted-text);
+                    "
+                >
+                    Please check back later.
+                </small>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    /* ========================================================
+       CASE 2:
+       SONGS EXIST — APPLY SEARCH
+    ======================================================== */
 
     const filtered =
         songs.filter(song => {
@@ -2337,6 +2399,11 @@ function renderSongs() {
         `${filtered.length} song${filtered.length !== 1 ? "s" : ""}`;
 
 
+    /* ========================================================
+       CASE 3:
+       SEARCH RESULT EMPTY
+    ======================================================== */
+
     if (filtered.length === 0) {
 
         grid.innerHTML = `
@@ -2346,27 +2413,39 @@ function renderSongs() {
                 <i
                     class="fas fa-search"
                     style="
-                    font-size:2rem;
+                    font-size:3rem;
                     opacity:.4;
+                    margin-bottom:1rem;
                     "
                 ></i>
 
-                <p>
-
+                <h2
+                    style="
+                    margin-bottom:.6rem;
+                    color:var(--title-color);
+                    "
+                >
                     No songs found
+                </h2>
 
+                <p
+                    style="
+                    font-size:.95rem;
+                    line-height:1.6;
+                    "
+                >
+                    No songs match your search.
                 </p>
 
                 <small
                     style="
                     display:block;
-                    margin-top:.5rem;
+                    margin-top:.6rem;
+                    color:var(--muted-text);
                     "
                 >
-
-                    Try searching with the song name,
-                    Telugu words, or Roman Telugu.
-
+                    Try another song name, Telugu word,
+                    or Roman Telugu word.
                 </small>
 
             </div>
@@ -2376,6 +2455,11 @@ function renderSongs() {
         return;
     }
 
+
+    /* ========================================================
+       CASE 4:
+       DISPLAY SONGS
+    ======================================================== */
 
     grid.innerHTML =
         filtered.map(song => {
@@ -2466,7 +2550,9 @@ function renderSongs() {
 
                         <i
                             class="fas fa-arrow-right"
-                            style="color:var(--primary-dark);"
+                            style="
+                            color:var(--primary-dark);
+                            "
                         ></i>
 
                     </div>
