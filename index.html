@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,17 +7,19 @@
 
 <title>Jesus Songs</title>
 
+<!-- Font Awesome -->
 <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
 />
 
+<!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 
 /* ============================================================
-   THEME
+   THEME VARIABLES
 ============================================================ */
 
 :root {
@@ -55,10 +58,18 @@
     --shadow: rgba(0,0,0,.08);
     --strong-shadow: rgba(0,0,0,.15);
 
+    --success: #2ecc71;
+
     --overlay: rgba(0,0,0,.65);
 }
 
+
+/* ============================================================
+   DARK THEME
+============================================================ */
+
 body.dark-mode {
+
     --body-bg: #101114;
     --body-text: #eeeeee;
 
@@ -110,10 +121,15 @@ html {
 }
 
 body {
+
     font-family: 'Segoe UI', Roboto, sans-serif;
+
     background: var(--body-bg);
+
     color: var(--body-text);
+
     min-height: 100vh;
+
     transition:
         background-color .3s ease,
         color .3s ease;
@@ -125,6 +141,7 @@ body {
 ============================================================ */
 
 .header {
+
     background:
         linear-gradient(
             135deg,
@@ -137,36 +154,48 @@ body {
     padding: 1.2rem 2rem;
 
     display: flex;
+
     flex-wrap: wrap;
+
     align-items: center;
+
     justify-content: space-between;
 
     box-shadow: 0 4px 15px rgba(0,0,0,.3);
 
     position: sticky;
+
     top: 0;
+
     z-index: 100;
 
     transition: .3s;
 }
 
 .header h1 {
+
     font-size: 1.9rem;
 
     display: flex;
+
     align-items: center;
 
     gap: .5rem;
 }
 
 .header h1 i {
+
     color: var(--primary);
 }
 
 .header-controls {
+
     display: flex;
+
     align-items: center;
+
     gap: 1rem;
+
     flex-wrap: wrap;
 }
 
@@ -176,21 +205,29 @@ body {
 ============================================================ */
 
 .search-wrap {
+
     position: relative;
 }
 
 .search-wrap i {
+
     position: absolute;
+
     left: .8rem;
+
     top: 50%;
+
     transform: translateY(-50%);
+
     color: rgba(255,255,255,.5);
 }
 
 #searchInput {
+
     padding: .5rem 1rem .5rem 2.2rem;
 
     border: none;
+
     border-radius: 30px;
 
     font-size: .95rem;
@@ -203,15 +240,18 @@ body {
 
     transition: .3s;
 
-    min-width: 250px;
+    min-width: 200px;
 }
 
 #searchInput::placeholder {
+
     color: rgba(255,255,255,.6);
 }
 
 #searchInput:focus {
+
     outline-color: var(--primary);
+
     background: rgba(255,255,255,.25);
 }
 
@@ -221,12 +261,15 @@ body {
 ============================================================ */
 
 .btn {
+
     padding: .5rem 1.2rem;
 
     border: none;
+
     border-radius: 30px;
 
     font-weight: 600;
+
     font-size: .9rem;
 
     cursor: pointer;
@@ -239,17 +282,23 @@ body {
 }
 
 .btn:hover {
+
     transform: scale(1.03);
+
     opacity: .9;
 }
 
 .btn:disabled {
+
     opacity: .6;
+
     cursor: not-allowed;
+
     transform: none;
 }
 
 .btn-outline {
+
     background: transparent;
 
     border: 2px solid var(--primary);
@@ -258,26 +307,35 @@ body {
 }
 
 .btn-outline:hover {
+
     background: var(--primary);
+
     color: #1a1a2e;
 }
 
 .btn-danger {
+
     background: #c0392b;
+
     color: #fff;
 }
 
 .btn-edit {
+
     background: #3498db;
+
     color: #fff;
 }
 
 .btn-edit:hover {
+
     background: #2980b9;
 }
 
 .btn-cancel {
+
     background: #777;
+
     color: #fff;
 }
 
@@ -287,13 +345,17 @@ body {
 ============================================================ */
 
 #themeToggleBtn {
+
     min-width: 48px;
+
     height: 42px;
 
     padding: .5rem .9rem;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     gap: .4rem;
@@ -314,7 +376,9 @@ body {
 }
 
 #themeToggleBtn:hover {
+
     background: var(--primary);
+
     color: #1a1a2e;
 
     transform: scale(1.05);
@@ -326,7 +390,9 @@ body {
 ============================================================ */
 
 .song-count {
+
     font-size: .9rem;
+
     color: rgba(255,255,255,.7);
 }
 
@@ -336,6 +402,7 @@ body {
 ============================================================ */
 
 .main {
+
     max-width: 1200px;
 
     margin: 0 auto;
@@ -351,6 +418,7 @@ body {
 ============================================================ */
 
 .songs-grid {
+
     display: grid;
 
     grid-template-columns:
@@ -368,6 +436,7 @@ body {
 ============================================================ */
 
 .song-card {
+
     background: var(--card-bg);
 
     border-radius: 16px;
@@ -385,12 +454,14 @@ body {
     overflow: hidden;
 
     display: flex;
+
     flex-direction: column;
 
     user-select: none;
 }
 
 .song-card:hover {
+
     transform: translateY(-4px);
 
     box-shadow:
@@ -398,10 +469,13 @@ body {
 }
 
 .song-card-header {
-    padding: 1.2rem 1.5rem .5rem;
+
+    padding:
+        1.2rem 1.5rem .5rem;
 }
 
 .song-title {
+
     font-size: 1.15rem;
 
     font-weight: 700;
@@ -410,16 +484,22 @@ body {
 }
 
 .song-title i {
+
     color: var(--primary-dark);
+
     margin-right: .4rem;
 }
 
 .song-card-body {
-    padding: 0 1.5rem .8rem;
+
+    padding:
+        0 1.5rem .8rem;
+
     flex: 1;
 }
 
 .song-preview {
+
     color: var(--preview-color);
 
     font-style: italic;
@@ -436,10 +516,13 @@ body {
 }
 
 .song-link {
-    padding: 0 1.5rem .7rem;
+
+    padding:
+        0 1.5rem .7rem;
 }
 
 .song-link a {
+
     color: var(--link-color);
 
     text-decoration: none;
@@ -448,11 +531,14 @@ body {
 }
 
 .song-link a:hover {
+
     text-decoration: underline;
 }
 
 .song-footer {
-    padding: .7rem 1.5rem 1rem;
+
+    padding:
+        .7rem 1.5rem 1rem;
 
     border-top:
         1px solid var(--soft-border);
@@ -472,6 +558,7 @@ body {
 ============================================================ */
 
 .no-results {
+
     text-align: center;
 
     padding: 3rem;
@@ -483,10 +570,11 @@ body {
 
 
 /* ============================================================
-   ADMIN
+   ADMIN PANEL
 ============================================================ */
 
 .admin-panel {
+
     display: none;
 
     background: var(--panel-bg);
@@ -506,15 +594,19 @@ body {
 }
 
 .admin-panel.active {
+
     display: block;
 }
 
 .admin-panel h2 {
+
     margin-bottom: 1rem;
+
     color: var(--title-color);
 }
 
 .admin-panel h3 {
+
     color: var(--title-color);
 }
 
@@ -524,10 +616,12 @@ body {
 ============================================================ */
 
 .form-group {
+
     margin-bottom: 1rem;
 }
 
 .form-group label {
+
     font-weight: 600;
 
     display: block;
@@ -539,6 +633,7 @@ body {
 
 .form-group input,
 .form-group textarea {
+
     width: 100%;
 
     padding: .7rem 1rem;
@@ -563,6 +658,7 @@ body {
 
 .form-group input:focus,
 .form-group textarea:focus {
+
     border-color: var(--primary);
 
     box-shadow:
@@ -571,21 +667,33 @@ body {
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
+
     color: var(--muted-text);
 }
 
 .form-group textarea {
+
     min-height: 140px;
+
     resize: vertical;
 }
 
+
+/* ============================================================
+   FORM ACTIONS
+============================================================ */
+
 .form-actions {
+
     display: flex;
+
     gap: .7rem;
+
     flex-wrap: wrap;
 }
 
 .status-message {
+
     margin-top: .8rem;
 
     font-size: .9rem;
@@ -599,6 +707,7 @@ body {
 ============================================================ */
 
 .admin-song-list {
+
     margin-top: 2rem;
 
     border-top:
@@ -608,6 +717,7 @@ body {
 }
 
 .admin-song-item {
+
     display: flex;
 
     justify-content: space-between;
@@ -623,6 +733,7 @@ body {
 }
 
 .admin-song-item .actions {
+
     display: flex;
 
     gap: .5rem;
@@ -633,6 +744,7 @@ body {
 }
 
 .edit-badge {
+
     display: inline-block;
 
     margin-left: .5rem;
@@ -652,10 +764,11 @@ body {
 
 
 /* ============================================================
-   LOGIN
+   LOGIN OVERLAY
 ============================================================ */
 
 .login-overlay {
+
     display: none;
 
     position: fixed;
@@ -669,19 +782,23 @@ body {
     z-index: 200;
 
     justify-content: center;
+
     align-items: center;
 }
 
 .login-overlay.active {
+
     display: flex;
 }
 
 .login-modal {
+
     background: var(--modal-bg);
 
     color: var(--text-color);
 
-    padding: 2.5rem 2rem;
+    padding:
+        2.5rem 2rem;
 
     border-radius: 24px;
 
@@ -698,11 +815,14 @@ body {
 }
 
 .login-modal h2 {
+
     margin-bottom: 1.5rem;
+
     color: var(--title-color);
 }
 
 .login-modal input {
+
     width: 100%;
 
     padding: .7rem 1rem;
@@ -724,19 +844,24 @@ body {
 }
 
 .login-modal input:focus {
+
     border-color: var(--primary);
 }
 
 .login-modal input::placeholder {
+
     color: var(--muted-text);
 }
 
 .login-modal .btn {
+
     width: 100%;
+
     padding: .7rem;
 }
 
 .login-error {
+
     color: #e74c3c;
 
     font-size: .9rem;
@@ -746,10 +871,11 @@ body {
 
 
 /* ============================================================
-   SONG DETAIL
+   SONG DETAIL OVERLAY
 ============================================================ */
 
 .song-detail-overlay {
+
     display: none;
 
     position: fixed;
@@ -763,16 +889,19 @@ body {
     z-index: 300;
 
     justify-content: center;
+
     align-items: center;
 
     padding: 2rem;
 }
 
 .song-detail-overlay.active {
+
     display: flex;
 }
 
 .song-detail-modal {
+
     background: var(--modal-bg);
 
     color: var(--text-color);
@@ -798,6 +927,7 @@ body {
 }
 
 .close-btn {
+
     position: absolute;
 
     top: 1rem;
@@ -818,12 +948,14 @@ body {
 }
 
 .close-btn:hover {
+
     color: var(--text-color);
 
     transform: scale(1.1);
 }
 
 .detail-title {
+
     font-size: 2rem;
 
     font-weight: 700;
@@ -834,12 +966,14 @@ body {
 }
 
 .detail-title i {
+
     color: var(--primary-dark);
 
     margin-right: .5rem;
 }
 
 .detail-lyrics {
+
     font-family: Georgia, serif;
 
     font-size: 1.1rem;
@@ -862,12 +996,14 @@ body {
 }
 
 .detail-link a {
+
     color: var(--link-color);
 
     text-decoration: none;
 }
 
 .detail-link a:hover {
+
     text-decoration: underline;
 }
 
@@ -877,6 +1013,7 @@ body {
 ============================================================ */
 
 .footer {
+
     background: var(--footer-bg);
 
     color: var(--footer-text);
@@ -898,6 +1035,7 @@ body {
 @media(max-width:650px) {
 
     .header {
+
         flex-direction: column;
 
         align-items: stretch;
@@ -906,23 +1044,29 @@ body {
     }
 
     .header-controls {
+
         justify-content: center;
     }
 
     #searchInput {
+
         width: 100%;
+
         min-width: 150px;
     }
 
     .songs-grid {
+
         grid-template-columns: 1fr;
     }
 
     .song-detail-modal {
+
         padding: 1.5rem;
     }
 
     .admin-song-item {
+
         align-items: flex-start;
 
         gap: .7rem;
@@ -931,13 +1075,17 @@ body {
     }
 
     .admin-song-item .actions {
+
         width: 100%;
+
         justify-content: flex-start;
     }
 
     .detail-title {
+
         font-size: 1.5rem;
     }
+
 }
 
 </style>
@@ -954,11 +1102,18 @@ body {
 <header class="header">
 
     <h1>
+
         <i class="fas fa-cross"></i>
+
         Jesus Songs
+
     </h1>
 
+
     <div class="header-controls">
+
+
+        <!-- SEARCH -->
 
         <div class="search-wrap">
 
@@ -973,12 +1128,18 @@ body {
 
         </div>
 
+
+        <!-- COUNT -->
+
         <span
             class="song-count"
             id="songCount"
         >
             Loading...
         </span>
+
+
+        <!-- DARK / LIGHT -->
 
         <button
             id="themeToggleBtn"
@@ -991,11 +1152,16 @@ body {
                 id="themeIcon"
             ></i>
 
-            <span id="themeText">
+            <span
+                id="themeText"
+            >
                 Dark
             </span>
 
         </button>
+
+
+        <!-- ADMIN -->
 
         <button
             class="btn btn-outline"
@@ -1032,11 +1198,13 @@ body {
 
         </h2>
 
+
         <input
             type="email"
             id="loginEmail"
             placeholder="Admin Email"
         />
+
 
         <input
             type="password"
@@ -1044,17 +1212,22 @@ body {
             placeholder="Password"
         />
 
+
         <button
             class="btn"
             id="loginBtn"
         >
+
             Login
+
         </button>
+
 
         <div
             class="login-error"
             id="loginError"
         ></div>
+
 
         <p
             style="
@@ -1063,7 +1236,9 @@ body {
             color:var(--muted-text);
             "
         >
+
             Login using your Supabase admin account
+
         </p>
 
     </div>
@@ -1086,20 +1261,27 @@ body {
             class="close-btn"
             id="detailCloseBtn"
         >
+
             &times;
+
         </button>
+
 
         <div
             class="detail-title"
             id="detailTitle"
         >
+
             Song
+
         </div>
+
 
         <div
             class="detail-lyrics"
             id="detailLyrics"
         ></div>
+
 
         <div
             class="detail-link"
@@ -1117,6 +1299,11 @@ body {
 
 <main class="main">
 
+
+    <!-- ========================================================
+         ADMIN PANEL
+    ======================================================== -->
+
     <div
         class="admin-panel"
         id="adminPanel"
@@ -1128,6 +1315,7 @@ body {
             value=""
         />
 
+
         <h2>
 
             <i class="fas fa-plus-circle"></i>
@@ -1136,24 +1324,34 @@ body {
 
         </h2>
 
+
+        <!-- TITLE -->
+
         <div class="form-group">
 
             <label>
+
                 Song Title *
+
             </label>
 
             <input
                 type="text"
                 id="songTitle"
-                placeholder="e.g. తేనెకన్న తీయనైనది"
+                placeholder="e.g. Amazing Grace"
             />
 
         </div>
 
+
+        <!-- LYRICS -->
+
         <div class="form-group">
 
             <label>
+
                 Lyrics *
+
             </label>
 
             <textarea
@@ -1163,10 +1361,15 @@ body {
 
         </div>
 
+
+        <!-- LINK -->
+
         <div class="form-group">
 
             <label>
+
                 Audio / YouTube Link
+
             </label>
 
             <input
@@ -1177,10 +1380,15 @@ body {
 
         </div>
 
+
+        <!-- CATEGORY -->
+
         <div class="form-group">
 
             <label>
+
                 Category
+
             </label>
 
             <input
@@ -1190,6 +1398,9 @@ body {
             />
 
         </div>
+
+
+        <!-- ACTIONS -->
 
         <div class="form-actions">
 
@@ -1203,6 +1414,7 @@ body {
                 Add Song
 
             </button>
+
 
             <button
                 class="btn btn-cancel"
@@ -1219,10 +1431,12 @@ body {
 
         </div>
 
+
         <div
             class="status-message"
             id="formStatus"
         ></div>
+
 
         <hr
             style="
@@ -1231,6 +1445,7 @@ body {
             border-top:1px solid var(--border-color);
             "
         />
+
 
         <div
             style="
@@ -1242,17 +1457,23 @@ body {
         >
 
             <h3>
+
                 Existing Songs
+
             </h3>
+
 
             <button
                 class="btn btn-danger"
                 id="logoutBtn"
             >
+
                 Logout
+
             </button>
 
         </div>
+
 
         <div
             class="admin-song-list"
@@ -1261,6 +1482,10 @@ body {
 
     </div>
 
+
+    <!-- ========================================================
+         PUBLIC SONGS
+    ======================================================== -->
 
     <div
         class="songs-grid"
@@ -1277,13 +1502,16 @@ body {
 <footer class="footer">
 
     <p>
+
         ✝️ Jesus Songs · Powered by Branks3
+
     </p>
 
 </footer>
 
 
 <script>
+
 
 /* ============================================================
    SUPABASE CONFIGURATION
@@ -1392,6 +1620,11 @@ const detailLyrics =
 const detailLink =
     document.getElementById("detailLink");
 
+
+/* ============================================================
+   THEME DOM
+============================================================ */
+
 const themeToggleBtn =
     document.getElementById("themeToggleBtn");
 
@@ -1403,828 +1636,14 @@ const themeText =
 
 
 /* ============================================================
-   ============================================================
-   TELUGU → ENGLISH TRANSLITERATION
-   ============================================================
-   ============================================================
-
-   This is the important new search feature.
-
-   Example:
-
-   తేనెకన్న
-   ↓
-   tenekanna
-
-   తీయనైనది
-   ↓
-   tiyanainadi
-
-   నా
-   ↓
-   naa
-
-   యేసు
-   ↓
-   yesu
-
-   ప్రేమ
-   ↓
-   prema
-
-============================================================ */
-
-
-/* ============================================================
-   TELUGU CONSONANTS
-============================================================ */
-
-const TELUGU_CONSONANTS = {
-
-    "క":"k",
-    "ఖ":"kh",
-    "గ":"g",
-    "ఘ":"gh",
-    "ఙ":"ng",
-
-    "చ":"ch",
-    "ఛ":"chh",
-    "జ":"j",
-    "ఝ":"jh",
-    "ఞ":"ny",
-
-    "ట":"t",
-    "ఠ":"th",
-    "డ":"d",
-    "ఢ":"dh",
-    "ణ":"n",
-
-    "త":"t",
-    "థ":"th",
-    "ద":"d",
-    "ధ":"dh",
-    "న":"n",
-
-    "ప":"p",
-    "ఫ":"ph",
-    "బ":"b",
-    "భ":"bh",
-    "మ":"m",
-
-    "య":"y",
-    "ర":"r",
-    "ల":"l",
-    "వ":"v",
-
-    "శ":"sh",
-    "ష":"sh",
-    "స":"s",
-    "హ":"h",
-
-    "ళ":"l",
-    "ఱ":"r",
-
-    "క్ష":"ksha",
-    "జ్ఞ":"gnya"
-};
-
-
-/* ============================================================
-   TELUGU VOWELS
-============================================================ */
-
-const TELUGU_VOWELS = {
-
-    "అ":"a",
-    "ఆ":"aa",
-    "ఇ":"i",
-    "ఈ":"ee",
-    "ఉ":"u",
-    "ఊ":"oo",
-    "ఋ":"ru",
-    "ఎ":"e",
-    "ఏ":"e",
-    "ఐ":"ai",
-    "ఒ":"o",
-    "ఓ":"o",
-    "ఔ":"au"
-};
-
-
-/* ============================================================
-   VOWEL SIGNS
-============================================================ */
-
-const TELUGU_SIGNS = {
-
-    "ా":"aa",
-    "ి":"i",
-    "ీ":"ee",
-    "ు":"u",
-    "ూ":"oo",
-    "ృ":"ru",
-    "ె":"e",
-    "ే":"e",
-    "ై":"ai",
-    "ొ":"o",
-    "ో":"o",
-    "ౌ":"au",
-
-    "్":"",
-
-    "ం":"m",
-    "ః":"h",
-    "ఁ":"n"
-};
-
-
-/* ============================================================
-   COMMON TELUGU WORD OVERRIDES
-============================================================
-
-   These make common Christian song words search more natural.
-============================================================ */
-
-const TELUGU_WORD_OVERRIDES = {
-
-    "యేసు": "yesu",
-    "ప్రభువు": "prabhuvu",
-    "ప్రభూ": "prabhu",
-    "దేవుని": "devuni",
-    "దేవుడు": "devudu",
-    "దేవా": "deva",
-    "క్రీస్తు": "kreestu",
-    "క్రీస్తని": "kreeshtani",
-    "ప్రేమ": "prema",
-    "ప్రేమించెను": "preminchenu",
-    "రక్షించెను": "rakshinchenu",
-    "నన్ను": "nannu",
-    "నాకు": "naaku",
-    "నాతోడు": "naatodu",
-    "తోడు": "todu",
-    "తెల్లనైనది": "tellanainadi",
-    "తీయనైనది": "tiyanainadi",
-    "తేనెకన్న": "tenekanna",
-    "కష్టకాలమందు": "kashtakaalamandu",
-    "ఆగకనే": "aagakane",
-    "సాగిపోదును": "saagipodunu",
-    "చూపించు": "choopinchu",
-    "బాటలో": "baatalo",
-    "అడ్డంకులన్ని": "addankulanni",
-    "విడువకుందును": "viduvakundunu",
-    "నావాళ్ళే": "naavaalle",
-    "బంధువులే": "bandhuvule",
-    "దూరమైనా": "dooramaina",
-    "ఒంటరినైనను": "ontarinainanu",
-    "ఆనందింతును": "aanandintunu"
-};
-
-
-/* ============================================================
-   SINGLE TELUGU WORD TRANSLITERATION
-============================================================ */
-
-function transliterateTeluguWord(word) {
-
-    if (!word) {
-        return "";
-    }
-
-
-    /*
-       First check exact common-word dictionary.
-    */
-
-    if (TELUGU_WORD_OVERRIDES[word]) {
-
-        return TELUGU_WORD_OVERRIDES[word];
-
-    }
-
-
-    let result = "";
-
-    const chars =
-        Array.from(word);
-
-
-    for (let i = 0; i < chars.length; i++) {
-
-        const char =
-            chars[i];
-
-
-        /*
-           Handle conjuncts first.
-        */
-
-        if (
-            char === "క" &&
-            chars[i + 1] === "్" &&
-            chars[i + 2] === "ష"
-        ) {
-
-            result += "ksha";
-
-            i += 2;
-
-            continue;
-        }
-
-
-        if (
-            char === "జ" &&
-            chars[i + 1] === "్" &&
-            chars[i + 2] === "ఞ"
-        ) {
-
-            result += "gnya";
-
-            i += 2;
-
-            continue;
-        }
-
-
-        /*
-           Independent vowel.
-        */
-
-        if (TELUGU_VOWELS[char]) {
-
-            result +=
-                TELUGU_VOWELS[char];
-
-            continue;
-        }
-
-
-        /*
-           Consonant.
-        */
-
-        if (TELUGU_CONSONANTS[char]) {
-
-            let consonant =
-                TELUGU_CONSONANTS[char];
-
-
-            const next =
-                chars[i + 1];
-
-
-            /*
-               If next character is a vowel sign,
-               combine them.
-            */
-
-            if (
-                next &&
-                TELUGU_SIGNS[next] !== undefined
-            ) {
-
-                const sign =
-                    TELUGU_SIGNS[next];
-
-
-                /*
-                   Virama means no vowel.
-                */
-
-                if (next === "్") {
-
-                    result += consonant;
-
-                } else {
-
-                    result +=
-                        consonant +
-                        sign;
-
-                }
-
-                i++;
-
-            } else {
-
-                /*
-                   Default Telugu consonant
-                   has implicit "a".
-                */
-
-                result +=
-                    consonant + "a";
-
-            }
-
-            continue;
-        }
-
-
-        /*
-           Vowel signs appearing separately.
-        */
-
-        if (TELUGU_SIGNS[char] !== undefined) {
-
-            result +=
-                TELUGU_SIGNS[char];
-
-            continue;
-        }
-
-
-        /*
-           Numbers / punctuation / spaces.
-        */
-
-        result += char;
-    }
-
-
-    return result;
-}
-
-
-/* ============================================================
-   FULL TEXT TELUGU TRANSLITERATION
-============================================================ */
-
-function transliterateTelugu(text) {
-
-    if (!text) {
-        return "";
-    }
-
-
-    let output = "";
-
-    let currentWord = "";
-
-
-    const chars =
-        Array.from(text);
-
-
-    function flushWord() {
-
-        if (!currentWord) {
-            return;
-        }
-
-
-        output +=
-            transliterateTeluguWord(
-                currentWord
-            );
-
-
-        currentWord = "";
-    }
-
-
-    for (const char of chars) {
-
-        /*
-           Telugu characters.
-        */
-
-        if (
-            /[\u0C00-\u0C7F]/.test(char)
-        ) {
-
-            currentWord += char;
-
-        } else {
-
-            flushWord();
-
-            output += char;
-        }
-
-    }
-
-
-    flushWord();
-
-
-    return output;
-}
-
-
-/* ============================================================
-   SEARCH NORMALIZATION
-============================================================ */
-
-function normalizeSearchText(text) {
-
-    if (!text) {
-        return "";
-    }
-
-
-    return String(text)
-
-        .normalize("NFD")
-
-        .replace(
-            /[\u0300-\u036f]/g,
-            ""
-        )
-
-        .toLowerCase()
-
-        .replace(
-            /[^\p{L}\p{N}\s]/gu,
-            " "
-        )
-
-        .replace(
-            /\s+/g,
-            " "
-        )
-
-        .trim();
-}
-
-
-/* ============================================================
-   CREATE SEARCH TEXT
-============================================================ */
-
-function createSearchText(song) {
-
-    const title =
-        song.title || "";
-
-    const lyrics =
-        song.lyrics || "";
-
-    const category =
-        song.category || "";
-
-    const artist =
-        song.artist || "";
-
-
-    /*
-       Original Telugu / English text.
-    */
-
-    const originalText =
-        [
-            title,
-            lyrics,
-            category,
-            artist
-        ]
-        .join(" ");
-
-
-    /*
-       Telugu converted to English.
-    */
-
-    const transliteratedText =
-        [
-            transliterateTelugu(title),
-            transliterateTelugu(lyrics),
-            transliterateTelugu(category),
-            transliterateTelugu(artist)
-        ]
-        .join(" ");
-
-
-    return {
-
-        original:
-            normalizeSearchText(
-                originalText
-            ),
-
-        transliterated:
-            normalizeSearchText(
-                transliteratedText
-            )
-
-    };
-}
-
-
-/* ============================================================
-   FUZZY WORD MATCH
-============================================================ */
-
-function levenshteinDistance(a, b) {
-
-    if (a === b) {
-        return 0;
-    }
-
-
-    if (!a.length) {
-        return b.length;
-    }
-
-
-    if (!b.length) {
-        return a.length;
-    }
-
-
-    const matrix =
-        Array.from(
-            { length: b.length + 1 },
-            () => []
-        );
-
-
-    for (let i = 0; i <= b.length; i++) {
-
-        matrix[i][0] = i;
-
-    }
-
-
-    for (let j = 0; j <= a.length; j++) {
-
-        matrix[0][j] = j;
-
-    }
-
-
-    for (let i = 1; i <= b.length; i++) {
-
-        for (let j = 1; j <= a.length; j++) {
-
-            if (
-                b.charAt(i - 1)
-                ===
-                a.charAt(j - 1)
-            ) {
-
-                matrix[i][j] =
-                    matrix[i - 1][j - 1];
-
-            } else {
-
-                matrix[i][j] =
-                    Math.min(
-
-                        matrix[i - 1][j - 1] + 1,
-
-                        matrix[i][j - 1] + 1,
-
-                        matrix[i - 1][j] + 1
-
-                    );
-
-            }
-
-        }
-
-    }
-
-
-    return matrix[b.length][a.length];
-}
-
-
-/* ============================================================
-   CHECK FUZZY SEARCH
-============================================================ */
-
-function fuzzyWordExists(
-    queryWord,
-    textWords
-) {
-
-    if (!queryWord) {
-        return false;
-    }
-
-
-    /*
-       Exact / partial matching first.
-    */
-
-    for (const word of textWords) {
-
-        if (
-            word.includes(queryWord)
-            ||
-            queryWord.includes(word)
-        ) {
-
-            return true;
-
-        }
-
-    }
-
-
-    /*
-       Small spelling differences.
-
-       Example:
-
-       tiyanainadi
-       tiyanainadi
-
-       tenekanna
-       thenekanna
-    */
-
-    if (queryWord.length < 4) {
-        return false;
-    }
-
-
-    for (const word of textWords) {
-
-        if (word.length < 4) {
-            continue;
-        }
-
-
-        const distance =
-            levenshteinDistance(
-                queryWord,
-                word
-            );
-
-
-        const allowed =
-            queryWord.length >= 8
-                ? 3
-                : queryWord.length >= 6
-                    ? 2
-                    : 1;
-
-
-        if (distance <= allowed) {
-
-            return true;
-
-        }
-
-    }
-
-
-    return false;
-}
-
-
-/* ============================================================
-   SONG SEARCH MATCH
-============================================================ */
-
-function songMatchesSearch(
-    song,
-    query
-) {
-
-    if (!query) {
-        return true;
-    }
-
-
-    const searchData =
-        createSearchText(song);
-
-
-    const normalizedQuery =
-        normalizeSearchText(query);
-
-
-    if (!normalizedQuery) {
-        return true;
-    }
-
-
-    /*
-       1. Direct original text match.
-
-       This supports Telugu search.
-
-       Example:
-       తేనెకన్న
-    */
-
-    if (
-        searchData.original
-            .includes(normalizedQuery)
-    ) {
-
-        return true;
-
-    }
-
-
-    /*
-       2. Direct transliterated text match.
-
-       Example:
-       Tenekanna
-    */
-
-    if (
-        searchData.transliterated
-            .includes(normalizedQuery)
-    ) {
-
-        return true;
-
-    }
-
-
-    /*
-       3. Word-by-word matching.
-
-       Example:
-
-       "Tenekanna tiyanainadi na yesu prema"
-
-       Each word is checked against the
-       Telugu transliterated lyrics.
-    */
-
-    const queryWords =
-        normalizedQuery
-            .split(/\s+/)
-            .filter(Boolean);
-
-
-    const transliteratedWords =
-        searchData.transliterated
-            .split(/\s+/)
-            .filter(Boolean);
-
-
-    /*
-       If ALL query words are found,
-       return true.
-    */
-
-    const allWordsMatch =
-        queryWords.every(
-            queryWord =>
-                fuzzyWordExists(
-                    queryWord,
-                    transliteratedWords
-                )
-        );
-
-
-    if (allWordsMatch) {
-
-        return true;
-
-    }
-
-
-    /*
-       4. Check original words too.
-    */
-
-    const originalWords =
-        searchData.original
-            .split(/\s+/)
-            .filter(Boolean);
-
-
-    const originalWordsMatch =
-        queryWords.every(
-            queryWord =>
-                fuzzyWordExists(
-                    queryWord,
-                    originalWords
-                )
-        );
-
-
-    if (originalWordsMatch) {
-
-        return true;
-
-    }
-
-
-    return false;
-}
-
-
-/* ============================================================
-   THEME
+   THEME FUNCTIONS
 ============================================================ */
 
 function applyTheme(theme) {
 
     if (theme === "dark") {
 
-        document.body.classList.add(
-            "dark-mode"
-        );
+        document.body.classList.add("dark-mode");
 
         themeIcon.className =
             "fas fa-sun";
@@ -2237,9 +1656,7 @@ function applyTheme(theme) {
 
     } else {
 
-        document.body.classList.remove(
-            "dark-mode"
-        );
+        document.body.classList.remove("dark-mode");
 
         themeIcon.className =
             "fas fa-moon";
@@ -2249,9 +1666,7 @@ function applyTheme(theme) {
 
         themeToggleBtn.title =
             "Switch to Dark Mode";
-
     }
-
 
     localStorage.setItem(
         "jesusSongsTheme",
@@ -2267,31 +1682,25 @@ function initializeTheme() {
             "jesusSongsTheme"
         );
 
-
     if (savedTheme === "dark") {
 
         applyTheme("dark");
 
         return;
-
     }
-
 
     if (savedTheme === "light") {
 
         applyTheme("light");
 
         return;
-
     }
-
 
     const prefersDark =
         window.matchMedia &&
         window.matchMedia(
             "(prefers-color-scheme: dark)"
         ).matches;
-
 
     if (prefersDark) {
 
@@ -2315,15 +1724,520 @@ themeToggleBtn.addEventListener(
                 "dark-mode"
             );
 
+        if (isDark) {
 
-        applyTheme(
-            isDark
-                ? "light"
-                : "dark"
-        );
+            applyTheme("light");
+
+        } else {
+
+            applyTheme("dark");
+
+        }
 
     }
 );
+
+
+/* ============================================================
+   TELUGU → ROMAN TELUGU TRANSLITERATION
+   ============================================================
+
+   This is the important part.
+
+   Example:
+
+   తేనెకన్న
+   ↓
+   tenekanna
+
+   తీయనైనది
+   ↓
+   tiyanainadi
+
+   నా యేసు ప్రేమ
+   ↓
+   na yesu prema
+============================================================ */
+
+const teluguIndependentVowels = {
+
+    "అ": "a",
+    "ఆ": "aa",
+    "ఇ": "i",
+    "ఈ": "ii",
+    "ఉ": "u",
+    "ఊ": "uu",
+    "ఋ": "ru",
+    "ఎ": "e",
+    "ఏ": "ee",
+    "ఐ": "ai",
+    "ఒ": "o",
+    "ఓ": "oo",
+    "ఔ": "au"
+};
+
+
+const teluguConsonants = {
+
+    "క": "k",
+    "ఖ": "kh",
+    "గ": "g",
+    "ఘ": "gh",
+    "ఙ": "ng",
+
+    "చ": "ch",
+    "ఛ": "chh",
+    "జ": "j",
+    "ఝ": "jh",
+    "ఞ": "ny",
+
+    "ట": "t",
+    "ఠ": "th",
+    "డ": "d",
+    "ఢ": "dh",
+    "ణ": "n",
+
+    "త": "t",
+    "థ": "th",
+    "ద": "d",
+    "ధ": "dh",
+    "న": "n",
+
+    "ప": "p",
+    "ఫ": "ph",
+    "బ": "b",
+    "భ": "bh",
+    "మ": "m",
+
+    "య": "y",
+    "ర": "r",
+    "ల": "l",
+    "వ": "v",
+
+    "శ": "sh",
+    "ష": "sh",
+    "స": "s",
+    "హ": "h",
+
+    "ళ": "l",
+    "క్ష": "ksha",
+    "ఱ": "r"
+};
+
+
+const teluguVowelSigns = {
+
+    "ా": "aa",
+    "ి": "i",
+    "ీ": "ii",
+    "ు": "u",
+    "ూ": "uu",
+    "ృ": "ru",
+    "ె": "e",
+    "ే": "ee",
+    "ై": "ai",
+    "ొ": "o",
+    "ో": "oo",
+    "ౌ": "au"
+};
+
+
+const teluguSpecialCharacters = {
+
+    "ం": "m",
+    "ః": "h",
+    "ఁ": "m"
+};
+
+
+function transliterateTelugu(text) {
+
+    if (!text) {
+        return "";
+    }
+
+    let result = "";
+
+    const chars =
+        Array.from(String(text));
+
+
+    for (let i = 0; i < chars.length; i++) {
+
+        const char =
+            chars[i];
+
+        /* Independent vowels */
+
+        if (
+            teluguIndependentVowels[char]
+        ) {
+
+            result +=
+                teluguIndependentVowels[char];
+
+            continue;
+        }
+
+
+        /* Special characters */
+
+        if (
+            teluguSpecialCharacters[char]
+        ) {
+
+            result +=
+                teluguSpecialCharacters[char];
+
+            continue;
+        }
+
+
+        /* Virama */
+
+        if (char === "్") {
+
+            continue;
+
+        }
+
+
+        /* Consonant */
+
+        if (
+            teluguConsonants[char]
+        ) {
+
+            const consonant =
+                teluguConsonants[char];
+
+
+            const next =
+                chars[i + 1];
+
+
+            /* Vowel sign exists */
+
+            if (
+                next &&
+                teluguVowelSigns[next]
+            ) {
+
+                result +=
+                    consonant +
+                    teluguVowelSigns[next];
+
+                i++;
+
+                continue;
+            }
+
+
+            /* Virama means no vowel */
+
+            if (
+                next === "్"
+            ) {
+
+                result += consonant;
+
+                i++;
+
+                continue;
+            }
+
+
+            /*
+               Telugu consonants normally
+               have an inherent "a" sound.
+            */
+
+            result +=
+                consonant + "a";
+
+            continue;
+        }
+
+
+        /* Keep English / numbers / spaces */
+
+        result += char;
+    }
+
+
+    return result;
+}
+
+
+/* ============================================================
+   SEARCH NORMALIZATION
+============================================================ */
+
+function normalizeSearchText(text) {
+
+    if (!text) {
+        return "";
+    }
+
+
+    return String(text)
+
+        .toLowerCase()
+
+        /* Remove accents */
+
+        .normalize("NFD")
+        .replace(
+            /[\u0300-\u036f]/g,
+            ""
+        )
+
+        /* Convert multiple spaces */
+
+        .replace(
+            /\s+/g,
+            " "
+        )
+
+        .trim();
+}
+
+
+/* ============================================================
+   ROMAN SEARCH NORMALIZATION
+============================================================ */
+
+function normalizeRomanText(text) {
+
+    return normalizeSearchText(text)
+
+        /*
+           Common Roman Telugu variations
+        */
+
+        .replace(/aa/g, "a")
+
+        .replace(/ee/g, "i")
+
+        .replace(/ii/g, "i")
+
+        .replace(/uu/g, "u")
+
+        .replace(/oo/g, "o")
+
+        .replace(/sh/g, "s")
+
+        .replace(/chh/g, "ch")
+
+        .replace(/kh/g, "k")
+
+        .replace(/gh/g, "g")
+
+        .replace(/dh/g, "d")
+
+        .replace(/bh/g, "b")
+
+        .replace(/ph/g, "p")
+
+        .replace(/th/g, "t")
+
+        .replace(/jh/g, "j")
+
+        .replace(
+            /[^a-z0-9\u0C00-\u0C7F\s]/g,
+            " "
+        )
+
+        .replace(
+            /\s+/g,
+            " "
+        )
+
+        .trim();
+}
+
+
+/* ============================================================
+   CREATE SEARCH TEXT FOR EACH SONG
+============================================================ */
+
+function createSongSearchText(song) {
+
+    const title =
+        song.title || "";
+
+    const lyrics =
+        song.lyrics || "";
+
+    const category =
+        song.category || "";
+
+    /*
+       Original Telugu text
+    */
+
+    const originalText =
+        normalizeSearchText(
+            `${title} ${lyrics} ${category}`
+        );
+
+
+    /*
+       Telugu → Roman Telugu
+    */
+
+    const romanText =
+        normalizeRomanText(
+            transliterateTelugu(
+                `${title} ${lyrics} ${category}`
+            )
+        );
+
+
+    /*
+       If admin entered an English title,
+       keep that too.
+    */
+
+    const englishText =
+        normalizeRomanText(
+            `${title} ${lyrics} ${category}`
+        );
+
+
+    return {
+
+        original:
+            originalText,
+
+        roman:
+            romanText,
+
+        english:
+            englishText
+    };
+}
+
+
+/* ============================================================
+   SEARCH MATCH FUNCTION
+============================================================ */
+
+function songMatchesSearch(song, query) {
+
+    if (!query) {
+        return true;
+    }
+
+
+    const normalizedQuery =
+        normalizeSearchText(query);
+
+
+    if (!normalizedQuery) {
+        return true;
+    }
+
+
+    /*
+       Query typed by user may be:
+
+       Telugu:
+       తేనెకన్న
+
+       OR Roman Telugu:
+       tenekanna
+
+       OR English:
+       jesus
+    */
+
+    const queryRoman =
+        normalizeRomanText(
+            transliterateTelugu(
+                normalizedQuery
+            )
+        );
+
+
+    const queryNormal =
+        normalizeRomanText(
+            normalizedQuery
+        );
+
+
+    const searchData =
+        createSongSearchText(song);
+
+
+    /*
+       Split into individual words.
+
+       Example:
+
+       "Tenekanna tiyanainadi na yesu prema"
+
+       becomes:
+
+       tenekanna
+       tiyanainadi
+       na
+       yesu
+       prema
+    */
+
+    const words =
+        normalizedQuery
+            .split(/\s+/)
+            .filter(Boolean);
+
+
+    /*
+       Every word must exist somewhere
+       in title / lyrics / category.
+    */
+
+    return words.every(word => {
+
+        const wordOriginal =
+            normalizeSearchText(word);
+
+
+        const wordRoman =
+            normalizeRomanText(word);
+
+
+        const wordTeluguToRoman =
+            normalizeRomanText(
+                transliterateTelugu(word)
+            );
+
+
+        return (
+
+            searchData.original
+                .includes(wordOriginal)
+
+            ||
+
+            searchData.roman
+                .includes(wordRoman)
+
+            ||
+
+            searchData.roman
+                .includes(wordTeluguToRoman)
+
+            ||
+
+            searchData.english
+                .includes(wordRoman)
+
+        );
+
+    });
+
+}
 
 
 /* ============================================================
@@ -2350,10 +2264,7 @@ async function loadSongs() {
 
     if (error) {
 
-        console.error(
-            "Supabase load error:",
-            error
-        );
+        console.error(error);
 
 
         grid.innerHTML = `
@@ -2366,11 +2277,15 @@ async function loadSongs() {
                 ></i>
 
                 <p>
+
                     Failed to load songs.
+
                 </p>
 
                 <small>
+
                     ${escapeHTML(error.message)}
+
                 </small>
 
             </div>
@@ -2383,7 +2298,6 @@ async function loadSongs() {
 
 
         return;
-
     }
 
 
@@ -2399,38 +2313,24 @@ async function loadSongs() {
 
 
 /* ============================================================
-   RENDER SONGS
+   RENDER PUBLIC SONGS
 ============================================================ */
 
 function renderSongs() {
 
     const q =
-        searchQuery.trim();
+        searchQuery;
 
-
-    /*
-       IMPORTANT:
-
-       Instead of only doing:
-
-       title.includes(q)
-
-       we now use:
-
-       songMatchesSearch()
-
-       which understands Telugu + English
-       transliteration.
-    */
 
     const filtered =
-        songs.filter(
-            song =>
-                songMatchesSearch(
-                    song,
-                    q
-                )
-        );
+        songs.filter(song => {
+
+            return songMatchesSearch(
+                song,
+                q
+            );
+
+        });
 
 
     songCount.textContent =
@@ -2452,11 +2352,21 @@ function renderSongs() {
                 ></i>
 
                 <p>
+
                     No songs found
+
                 </p>
 
-                <small>
-                    Try Telugu or English letters
+                <small
+                    style="
+                    display:block;
+                    margin-top:.5rem;
+                    "
+                >
+
+                    Try searching with the song name,
+                    Telugu words, or Roman Telugu.
+
                 </small>
 
             </div>
@@ -2464,7 +2374,6 @@ function renderSongs() {
         `;
 
         return;
-
     }
 
 
@@ -2475,8 +2384,7 @@ function renderSongs() {
                 (song.lyrics || "")
                     .split("\n")
                     .filter(
-                        x =>
-                            x.trim() !== ""
+                        x => x.trim() !== ""
                     )[0]
                     || "...";
 
@@ -2526,7 +2434,7 @@ function renderSongs() {
                             <a
                                 href="${escapeAttribute(link)}"
                                 target="_blank"
-                                rel="noopener noreferrer"
+                                rel="noopener"
                             >
 
                                 <i
@@ -2555,14 +2463,14 @@ function renderSongs() {
 
                         </span>
 
+
                         <i
                             class="fas fa-arrow-right"
-                            style="
-                            color:var(--primary-dark);
-                            "
+                            style="color:var(--primary-dark);"
                         ></i>
 
                     </div>
+
 
                 </div>
 
@@ -2584,21 +2492,15 @@ function renderAdminList() {
         adminSongList.innerHTML = "";
 
         return;
-
     }
 
 
     if (songs.length === 0) {
 
         adminSongList.innerHTML =
-            `
-            <p style="color:var(--muted-text);">
-                No songs yet.
-            </p>
-            `;
+            "<p style='color:var(--muted-text);'>No songs yet.</p>";
 
         return;
-
     }
 
 
@@ -2614,19 +2516,14 @@ function renderAdminList() {
                         ${escapeHTML(song.title)}
 
                         ${
-                            Number(
-                                editingSongId.value
-                            )
-                            ===
-                            Number(song.id)
+                            Number(editingSongId.value)
+                            === Number(song.id)
 
                             ?
 
-                            `
-                            <span class="edit-badge">
+                            `<span class="edit-badge">
                                 Editing
-                            </span>
-                            `
+                            </span>`
 
                             :
 
@@ -2687,9 +2584,7 @@ function renderAdminList() {
                 () => {
 
                     startEditSong(
-                        Number(
-                            button.dataset.id
-                        )
+                        Number(button.dataset.id)
                     );
 
                 }
@@ -2707,9 +2602,7 @@ function renderAdminList() {
                 () => {
 
                     deleteSong(
-                        Number(
-                            button.dataset.id
-                        )
+                        Number(button.dataset.id)
                     );
 
                 }
@@ -2721,7 +2614,7 @@ function renderAdminList() {
 
 
 /* ============================================================
-   OPEN DETAIL
+   OPEN SONG DETAIL
 ============================================================ */
 
 function openDetail(song) {
@@ -2747,7 +2640,7 @@ function openDetail(song) {
             <a
                 href="${escapeAttribute(song.audio_url)}"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
             >
 
                 <i class="fas fa-play-circle"></i>
@@ -2782,6 +2675,7 @@ function closeDetail() {
         "active"
     );
 
+
     document.body.style.overflow =
         "";
 
@@ -2797,6 +2691,7 @@ async function login() {
     const email =
         loginEmail.value.trim();
 
+
     const password =
         loginPassword.value;
 
@@ -2807,7 +2702,6 @@ async function login() {
             "Please enter email and password.";
 
         return;
-
     }
 
 
@@ -2819,24 +2713,24 @@ async function login() {
         data,
         error
     } =
-        await supabaseClient.auth
-            .signInWithPassword({
+        await supabaseClient.auth.signInWithPassword({
 
-                email,
-                password
+            email,
 
-            });
+            password
+
+        });
 
 
     if (error) {
 
         console.error(error);
 
+
         loginError.textContent =
             "❌ " + error.message;
 
         return;
-
     }
 
 
@@ -2923,7 +2817,6 @@ async function addSong() {
         );
 
         return;
-
     }
 
 
@@ -2936,7 +2829,6 @@ async function addSong() {
         await updateSong(editId);
 
         return;
-
     }
 
 
@@ -2963,30 +2855,28 @@ async function addSong() {
         );
 
         return;
-
     }
 
 
     addSongBtn.disabled = true;
 
 
-    addSongBtn.innerHTML =
-        `<i class="fas fa-spinner fa-spin"></i> Saving...`;
+    addSongBtn.textContent =
+        "Saving...";
 
 
     const {
+        data,
         error
     } =
         await supabaseClient
             .from("songs")
             .insert([
-
                 {
 
                     title: title,
 
-                    artist:
-                        "Jesus Songs",
+                    artist: "Jesus Songs",
 
                     lyrics: lyrics,
 
@@ -2994,12 +2884,11 @@ async function addSong() {
                         link || null,
 
                     category:
-                        category ||
-                        "Worship"
+                        category || "Worship"
 
                 }
-
-            ]);
+            ])
+            .select();
 
 
     addSongBtn.disabled = false;
@@ -3020,7 +2909,6 @@ async function addSong() {
         );
 
         return;
-
     }
 
 
@@ -3056,7 +2944,6 @@ function startEditSong(id) {
         );
 
         return;
-
     }
 
 
@@ -3064,8 +2951,7 @@ function startEditSong(id) {
         songs.find(
             s =>
                 Number(s.id)
-                ===
-                Number(id)
+                === Number(id)
         );
 
 
@@ -3076,7 +2962,6 @@ function startEditSong(id) {
         );
 
         return;
-
     }
 
 
@@ -3109,10 +2994,7 @@ function startEditSong(id) {
 
 
     formStatus.textContent =
-        `Editing: ${
-            song.title ||
-            "Untitled song"
-        }`;
+        `Editing: ${song.title || "Untitled song"}`;
 
 
     formStatus.style.color =
@@ -3122,13 +3004,12 @@ function startEditSong(id) {
     renderAdminList();
 
 
-    songTitle.scrollIntoView({
-
-        behavior: "smooth",
-
-        block: "center"
-
-    });
+    document
+        .getElementById("songTitle")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
 
 
     songTitle.focus();
@@ -3186,7 +3067,6 @@ async function updateSong(id) {
         );
 
         return;
-
     }
 
 
@@ -3213,7 +3093,6 @@ async function updateSong(id) {
         );
 
         return;
-
     }
 
 
@@ -3249,8 +3128,7 @@ async function updateSong(id) {
                     link || null,
 
                 category:
-                    category ||
-                    "Worship"
+                    category || "Worship"
 
             })
             .eq("id", id);
@@ -3280,7 +3158,6 @@ async function updateSong(id) {
 
 
         return;
-
     }
 
 
@@ -3310,7 +3187,6 @@ async function deleteSong(id) {
         );
 
         return;
-
     }
 
 
@@ -3320,9 +3196,7 @@ async function deleteSong(id) {
         );
 
 
-    if (!confirmed) {
-        return;
-    }
+    if (!confirmed) return;
 
 
     const {
@@ -3345,7 +3219,6 @@ async function deleteSong(id) {
         );
 
         return;
-
     }
 
 
@@ -3466,7 +3339,7 @@ loginOverlay.addEventListener(
 
 
 /* ============================================================
-   CLOSE DETAIL
+   CLOSE SONG DETAIL
 ============================================================ */
 
 detailCloseBtn.addEventListener(
@@ -3490,7 +3363,7 @@ detailOverlay.addEventListener(
 
 
 /* ============================================================
-   ESCAPE
+   ESCAPE KEY
 ============================================================ */
 
 document.addEventListener(
@@ -3533,9 +3406,7 @@ grid.addEventListener(
             );
 
 
-        if (!card) {
-            return;
-        }
+        if (!card) return;
 
 
         const id =
@@ -3548,8 +3419,7 @@ grid.addEventListener(
             songs.find(
                 s =>
                     Number(s.id)
-                    ===
-                    id
+                    === id
             );
 
 
@@ -3564,7 +3434,7 @@ grid.addEventListener(
 
 
 /* ============================================================
-   ADD / EDIT
+   ADD / EDIT EVENTS
 ============================================================ */
 
 addSongBtn.addEventListener(
@@ -3580,7 +3450,7 @@ cancelEditBtn.addEventListener(
 
 
 /* ============================================================
-   LOGOUT
+   LOGOUT EVENT
 ============================================================ */
 
 logoutBtn.addEventListener(
@@ -3590,7 +3460,7 @@ logoutBtn.addEventListener(
 
 
 /* ============================================================
-   SECURITY
+   SECURITY HELPERS
 ============================================================ */
 
 function escapeHTML(value) {
@@ -3633,7 +3503,7 @@ function escapeAttribute(value) {
 
 
 /* ============================================================
-   CHECK EXISTING LOGIN
+   CHECK EXISTING LOGIN SESSION
 ============================================================ */
 
 async function checkUser() {
@@ -3641,8 +3511,7 @@ async function checkUser() {
     const {
         data
     } =
-        await supabaseClient.auth
-            .getUser();
+        await supabaseClient.auth.getUser();
 
 
     if (
@@ -3694,7 +3563,7 @@ init();
 
 
 /* ============================================================
-   AUTH STATE
+   AUTH STATE LISTENER
 ============================================================ */
 
 supabaseClient.auth.onAuthStateChange(
@@ -3732,19 +3601,6 @@ supabaseClient.auth.onAuthStateChange(
 
             currentUser = null;
 
-            adminPanel.classList.remove(
-                "active"
-            );
-
-            adminToggleBtn.innerHTML =
-                `<i class="fas fa-user-shield"></i> Admin`;
-
-            adminToggleBtn.style.background =
-                "";
-
-            adminToggleBtn.style.color =
-                "";
-
         }
 
     }
@@ -3754,3 +3610,4 @@ supabaseClient.auth.onAuthStateChange(
 
 </body>
 </html>
+
