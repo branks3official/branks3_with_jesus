@@ -6,132 +6,114 @@
 
 <title>Jesus Songs</title>
 
-<!-- Font Awesome -->
 <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
 />
 
-<!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 
-/* ============================================================
-   THEME
-============================================================ */
-
 :root {
-    --body-bg:#f7f3ee;
-    --body-text:#222;
+    --body-bg: #f7f3ee;
+    --body-text: #222;
 
-    --card-bg:#fff;
-    --panel-bg:#fff;
-    --modal-bg:#fff;
+    --card-bg: #ffffff;
+    --panel-bg: #ffffff;
+    --modal-bg: #ffffff;
 
-    --header-bg-1:#1a1a2e;
-    --header-bg-2:#16213e;
+    --header-bg-1: #1a1a2e;
+    --header-bg-2: #16213e;
 
-    --header-text:#f5e6d3;
+    --header-text: #f5e6d3;
 
-    --primary:#f0c040;
-    --primary-dark:#b8860b;
+    --primary: #f0c040;
+    --primary-dark: #b8860b;
 
-    --title-color:#1a1a2e;
-    --text-color:#222;
-    --muted-text:#777;
-    --preview-color:#555;
+    --title-color: #1a1a2e;
+    --text-color: #222;
+    --muted-text: #777;
+    --preview-color: #555;
 
-    --border-color:#eee;
-    --soft-border:#f0ebe5;
+    --border-color: #eee;
+    --soft-border: #f0ebe5;
 
-    --input-bg:#fff;
-    --input-text:#222;
-    --input-border:#ddd;
+    --input-bg: #ffffff;
+    --input-text: #222;
+    --input-border: #ddd;
 
-    --link-color:#1a6fb5;
+    --link-color: #1a6fb5;
 
-    --footer-bg:#1a1a2e;
-    --footer-text:rgba(255,255,255,.4);
+    --footer-bg: #1a1a2e;
+    --footer-text: rgba(255,255,255,.4);
 
-    --shadow:rgba(0,0,0,.08);
-    --strong-shadow:rgba(0,0,0,.15);
+    --shadow: rgba(0,0,0,.08);
+    --strong-shadow: rgba(0,0,0,.15);
 
-    --success:#2ecc71;
+    --success: #2ecc71;
 
-    --overlay:rgba(0,0,0,.65);
+    --overlay: rgba(0,0,0,.65);
 }
-
-
-/* ============================================================
-   DARK MODE
-============================================================ */
 
 body.dark-mode {
 
-    --body-bg:#101114;
-    --body-text:#eee;
+    --body-bg: #101114;
+    --body-text: #eeeeee;
 
-    --card-bg:#1b1d22;
-    --panel-bg:#1b1d22;
-    --modal-bg:#1b1d22;
+    --card-bg: #1b1d22;
+    --panel-bg: #1b1d22;
+    --modal-bg: #1b1d22;
 
-    --header-bg-1:#08090d;
-    --header-bg-2:#151923;
+    --header-bg-1: #08090d;
+    --header-bg-2: #151923;
 
-    --title-color:#f5f5f5;
-    --text-color:#eee;
-    --muted-text:#a8a8a8;
-    --preview-color:#bdbdbd;
+    --header-text: #f5e6d3;
 
-    --border-color:#30333b;
-    --soft-border:#353841;
+    --title-color: #f5f5f5;
+    --text-color: #eeeeee;
+    --muted-text: #a8a8a8;
+    --preview-color: #bdbdbd;
 
-    --input-bg:#111318;
-    --input-text:#eee;
-    --input-border:#3b3e47;
+    --border-color: #30333b;
+    --soft-border: #353841;
 
-    --link-color:#5eb7ff;
+    --input-bg: #111318;
+    --input-text: #eeeeee;
+    --input-border: #3b3e47;
 
-    --footer-bg:#08090d;
-    --footer-text:rgba(255,255,255,.55);
+    --link-color: #5eb7ff;
 
-    --shadow:rgba(0,0,0,.35);
-    --strong-shadow:rgba(0,0,0,.55);
+    --footer-bg: #08090d;
+    --footer-text: rgba(255,255,255,.55);
 
-    --overlay:rgba(0,0,0,.78);
+    --shadow: rgba(0,0,0,.35);
+    --strong-shadow: rgba(0,0,0,.55);
+
+    --overlay: rgba(0,0,0,.78);
 }
 
-
-/* ============================================================
-   RESET
-============================================================ */
-
 * {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-    scroll-behavior:smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family:'Segoe UI',Roboto,sans-serif;
-    background:var(--body-bg);
-    color:var(--body-text);
-    min-height:100vh;
-    transition:background-color .3s ease,color .3s ease;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background: var(--body-bg);
+    color: var(--body-text);
+    min-height: 100vh;
+    transition: background-color .3s ease, color .3s ease;
 }
 
-
-/* ============================================================
-   HEADER
-============================================================ */
+/* HEADER */
 
 .header {
-
     background:
         linear-gradient(
             135deg,
@@ -139,292 +121,253 @@ body {
             var(--header-bg-2)
         );
 
-    color:var(--header-text);
+    color: var(--header-text);
 
-    padding:1.2rem 2rem;
+    padding: 1.2rem 2rem;
 
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    justify-content:space-between;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 
-    box-shadow:0 4px 15px rgba(0,0,0,.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,.3);
 
-    position:sticky;
-    top:0;
-    z-index:100;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    transition: .3s;
 }
 
 .header h1 {
-
-    font-size:1.9rem;
-
-    display:flex;
-    align-items:center;
-
-    gap:.5rem;
+    font-size: 1.9rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
 }
 
 .header h1 i {
-    color:var(--primary);
+    color: var(--primary);
 }
 
 .header-controls {
-
-    display:flex;
-    align-items:center;
-    gap:1rem;
-    flex-wrap:wrap;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
-
-/* ============================================================
-   SEARCH
-============================================================ */
+/* SEARCH */
 
 .search-wrap {
-    position:relative;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
-.search-wrap i {
-
-    position:absolute;
-
-    left:.8rem;
-    top:50%;
-
-    transform:translateY(-50%);
-
-    color:rgba(255,255,255,.55);
-
-    pointer-events:none;
+.search-wrap > .fa-search {
+    position: absolute;
+    left: .8rem;
+    color: rgba(255,255,255,.5);
+    pointer-events: none;
 }
 
 #searchInput {
+    padding: .55rem 2.4rem .55rem 2.2rem;
 
-    padding:.6rem 1rem .6rem 2.3rem;
+    border: none;
+    border-radius: 30px;
 
-    border:none;
+    font-size: .95rem;
 
-    border-radius:30px;
+    background: rgba(255,255,255,.15);
 
-    font-size:.95rem;
+    color: #fff;
 
-    background:rgba(255,255,255,.15);
+    outline: 2px solid transparent;
 
-    color:#fff;
+    transition: .3s;
 
-    outline:2px solid transparent;
-
-    transition:.3s;
-
-    min-width:260px;
+    min-width: 280px;
 }
 
 #searchInput::placeholder {
-    color:rgba(255,255,255,.65);
+    color: rgba(255,255,255,.6);
 }
 
 #searchInput:focus {
-
-    outline-color:var(--primary);
-
-    background:rgba(255,255,255,.25);
+    outline-color: var(--primary);
+    background: rgba(255,255,255,.25);
 }
-
-
-/* ============================================================
-   SEARCH CLEAR
-============================================================ */
 
 .search-clear {
+    position: absolute;
+    right: .75rem;
 
-    position:absolute;
+    width: 25px;
+    height: 25px;
 
-    right:10px;
-    top:50%;
+    border: none;
+    border-radius: 50%;
 
-    transform:translateY(-50%);
+    background: transparent;
 
-    border:none;
+    color: rgba(255,255,255,.7);
 
-    background:transparent;
+    cursor: pointer;
 
-    color:rgba(255,255,255,.7);
+    display: none;
 
-    cursor:pointer;
+    align-items: center;
+    justify-content: center;
 
-    display:none;
-
-    font-size:.9rem;
+    font-size: .85rem;
 }
 
-.search-clear.show {
-    display:block;
+.search-clear:hover {
+    background: rgba(255,255,255,.2);
+    color: #fff;
 }
 
+.search-clear.visible {
+    display: flex;
+}
 
-/* ============================================================
-   BUTTONS
-============================================================ */
+/* BUTTONS */
 
 .btn {
-
-    padding:.5rem 1.2rem;
-
-    border:none;
-
-    border-radius:30px;
-
-    font-weight:600;
-
-    font-size:.9rem;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-    background:var(--primary);
-
-    color:#1a1a2e;
+    padding: .5rem 1.2rem;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: .9rem;
+    cursor: pointer;
+    transition: .25s;
+    background: var(--primary);
+    color: #1a1a2e;
 }
 
 .btn:hover {
-
-    transform:scale(1.03);
-
-    opacity:.9;
+    transform: scale(1.03);
+    opacity: .9;
 }
 
 .btn:disabled {
-
-    opacity:.6;
-
-    cursor:not-allowed;
-
-    transform:none;
+    opacity: .6;
+    cursor: not-allowed;
+    transform: none;
 }
 
 .btn-outline {
-
-    background:transparent;
-
-    border:2px solid var(--primary);
-
-    color:var(--primary);
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
 }
 
 .btn-outline:hover {
-
-    background:var(--primary);
-
-    color:#1a1a2e;
+    background: var(--primary);
+    color: #1a1a2e;
 }
 
 .btn-danger {
-
-    background:#c0392b;
-
-    color:#fff;
+    background: #c0392b;
+    color: #fff;
 }
 
 .btn-edit {
-
-    background:#3498db;
-
-    color:#fff;
+    background: #3498db;
+    color: #fff;
 }
 
 .btn-edit:hover {
-    background:#2980b9;
+    background: #2980b9;
 }
 
 .btn-cancel {
-
-    background:#777;
-
-    color:#fff;
+    background: #777;
+    color: #fff;
 }
 
-
-/* ============================================================
-   THEME BUTTON
-============================================================ */
+/* THEME */
 
 #themeToggleBtn {
+    min-width: 48px;
+    height: 42px;
 
-    min-width:48px;
+    padding: .5rem .9rem;
 
-    height:42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    padding:.5rem .9rem;
+    gap: .4rem;
 
-    display:flex;
+    background: transparent;
 
-    align-items:center;
+    border: 2px solid var(--primary);
 
-    justify-content:center;
+    color: var(--primary);
 
-    gap:.4rem;
+    border-radius: 30px;
 
-    background:transparent;
+    cursor: pointer;
 
-    border:2px solid var(--primary);
+    font-size: 1rem;
 
-    color:var(--primary);
-
-    border-radius:30px;
-
-    cursor:pointer;
-
-    font-size:1rem;
-
-    transition:.25s;
+    transition: .25s;
 }
 
 #themeToggleBtn:hover {
-
-    background:var(--primary);
-
-    color:#1a1a2e;
-
-    transform:scale(1.05);
+    background: var(--primary);
+    color: #1a1a2e;
+    transform: scale(1.05);
 }
-
-
-/* ============================================================
-   COUNT
-============================================================ */
 
 .song-count {
-
-    font-size:.9rem;
-
-    color:rgba(255,255,255,.7);
+    font-size: .9rem;
+    color: rgba(255,255,255,.7);
 }
 
-
-/* ============================================================
-   MAIN
-============================================================ */
+/* MAIN */
 
 .main {
-
-    max-width:1200px;
-
-    margin:0 auto;
-
-    padding:2rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
 }
 
+/* SEARCH INFO */
 
-/* ============================================================
-   GRID
-============================================================ */
+.search-info {
+    display: none;
+
+    margin-bottom: 1.2rem;
+
+    padding: .75rem 1rem;
+
+    border-radius: 12px;
+
+    background: var(--card-bg);
+
+    color: var(--muted-text);
+
+    box-shadow: 0 4px 15px var(--shadow);
+
+    font-size: .9rem;
+}
+
+.search-info.active {
+    display: block;
+}
+
+.search-info strong {
+    color: var(--title-color);
+}
+
+/* GRID */
 
 .songs-grid {
-
-    display:grid;
+    display: grid;
 
     grid-template-columns:
         repeat(
@@ -432,256 +375,212 @@ body {
             minmax(300px,1fr)
         );
 
-    gap:1.5rem;
+    gap: 1.5rem;
 }
 
-
-/* ============================================================
-   CARD
-============================================================ */
+/* CARD */
 
 .song-card {
+    background: var(--card-bg);
 
-    background:var(--card-bg);
-
-    border-radius:16px;
+    border-radius: 16px;
 
     box-shadow:
         0 6px 20px var(--shadow);
 
-    transition:.3s;
+    transition: .3s;
 
     border-left:
         5px solid var(--primary-dark);
 
-    cursor:pointer;
+    cursor: pointer;
 
-    overflow:hidden;
+    overflow: hidden;
 
-    display:flex;
+    display: flex;
 
-    flex-direction:column;
+    flex-direction: column;
 
-    user-select:none;
+    user-select: none;
 }
 
 .song-card:hover {
-
-    transform:translateY(-4px);
+    transform: translateY(-4px);
 
     box-shadow:
         0 12px 30px var(--strong-shadow);
 }
 
 .song-card-header {
-
-    padding:1.2rem 1.5rem .5rem;
+    padding: 1.2rem 1.5rem .5rem;
 }
 
 .song-title {
-
-    font-size:1.15rem;
-
-    font-weight:700;
-
-    color:var(--title-color);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--title-color);
 }
 
 .song-title i {
-
-    color:var(--primary-dark);
-
-    margin-right:.4rem;
+    color: var(--primary-dark);
+    margin-right: .4rem;
 }
 
 .song-card-body {
-
-    padding:0 1.5rem .8rem;
-
-    flex:1;
+    padding: 0 1.5rem .8rem;
+    flex: 1;
 }
 
 .song-preview {
+    color: var(--preview-color);
+    font-style: italic;
+    font-size: .9rem;
 
-    color:var(--preview-color);
+    display: -webkit-box;
 
-    font-style:italic;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 
-    font-size:.9rem;
-
-    display:-webkit-box;
-
-    -webkit-line-clamp:2;
-
-    -webkit-box-orient:vertical;
-
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .song-link {
-
-    padding:0 1.5rem .7rem;
+    padding: 0 1.5rem .7rem;
 }
 
 .song-link a {
-
-    color:var(--link-color);
-
-    text-decoration:none;
-
-    font-size:.9rem;
+    color: var(--link-color);
+    text-decoration: none;
+    font-size: .9rem;
 }
 
 .song-link a:hover {
-    text-decoration:underline;
+    text-decoration: underline;
 }
 
 .song-footer {
+    padding: .7rem 1.5rem 1rem;
 
-    padding:.7rem 1.5rem 1rem;
+    border-top:
+        1px solid var(--soft-border);
 
-    border-top:1px solid var(--soft-border);
+    display: flex;
+    justify-content: space-between;
 
-    display:flex;
+    font-size: .8rem;
 
-    justify-content:space-between;
-
-    font-size:.8rem;
-
-    color:var(--muted-text);
+    color: var(--muted-text);
 }
 
-
-/* ============================================================
-   NO RESULTS
-============================================================ */
+/* NO RESULTS */
 
 .no-results {
+    text-align: center;
 
-    text-align:center;
+    padding: 5rem 2rem;
 
-    padding:5rem 2rem;
+    grid-column: 1 / -1;
 
-    grid-column:1 / -1;
-
-    color:var(--muted-text);
+    color: var(--muted-text);
 }
 
 .no-results-icon {
+    font-size: 3.5rem;
 
-    font-size:3.5rem;
+    margin-bottom: 1rem;
 
-    margin-bottom:1rem;
+    color: var(--primary-dark);
 
-    color:var(--primary-dark);
-
-    opacity:.8;
+    opacity: .8;
 }
 
 .no-results-title {
+    font-size: 1.25rem;
 
-    font-size:1.25rem;
+    font-weight: 700;
 
-    font-weight:700;
+    color: var(--title-color);
 
-    color:var(--title-color);
-
-    margin-bottom:.5rem;
+    margin-bottom: .5rem;
 }
 
 .no-results-text {
-
-    font-size:.95rem;
-
-    color:var(--muted-text);
+    font-size: .95rem;
+    color: var(--muted-text);
 }
 
-
-/* ============================================================
-   ADMIN
-============================================================ */
+/* ADMIN */
 
 .admin-panel {
+    display: none;
 
-    display:none;
+    background: var(--panel-bg);
 
-    background:var(--panel-bg);
+    color: var(--text-color);
 
-    color:var(--text-color);
-
-    border-radius:20px;
+    border-radius: 20px;
 
     box-shadow:
         0 8px 30px var(--shadow);
 
-    padding:2rem;
+    padding: 2rem;
 
-    margin-bottom:2rem;
+    margin-bottom: 2rem;
 }
 
 .admin-panel.active {
-    display:block;
+    display: block;
 }
 
 .admin-panel h2 {
-
-    margin-bottom:1rem;
-
-    color:var(--title-color);
+    margin-bottom: 1rem;
+    color: var(--title-color);
 }
 
 .admin-panel h3 {
-    color:var(--title-color);
+    color: var(--title-color);
 }
 
-
-/* ============================================================
-   FORM
-============================================================ */
+/* FORM */
 
 .form-group {
-    margin-bottom:1rem;
+    margin-bottom: 1rem;
 }
 
 .form-group label {
-
-    font-weight:600;
-
-    display:block;
-
-    margin-bottom:.3rem;
-
-    color:var(--text-color);
+    font-weight: 600;
+    display: block;
+    margin-bottom: .3rem;
+    color: var(--text-color);
 }
 
 .form-group input,
 .form-group textarea {
+    width: 100%;
 
-    width:100%;
+    padding: .7rem 1rem;
 
-    padding:.7rem 1rem;
+    border:
+        2px solid var(--input-border);
 
-    border:2px solid var(--input-border);
+    border-radius: 8px;
 
-    border-radius:8px;
+    font-size: .95rem;
 
-    font-size:.95rem;
+    font-family: inherit;
 
-    font-family:inherit;
+    background: var(--input-bg);
 
-    background:var(--input-bg);
+    color: var(--input-text);
 
-    color:var(--input-text);
+    outline: none;
 
-    outline:none;
-
-    transition:.25s;
+    transition: .25s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-
-    border-color:var(--primary);
+    border-color: var(--primary);
 
     box-shadow:
         0 0 0 3px rgba(240,192,64,.12);
@@ -689,416 +588,356 @@ body {
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color:var(--muted-text);
+    color: var(--muted-text);
 }
 
 .form-group textarea {
-
-    min-height:140px;
-
-    resize:vertical;
+    min-height: 140px;
+    resize: vertical;
 }
 
-
-/* ============================================================
-   FORM ACTIONS
-============================================================ */
-
 .form-actions {
-
-    display:flex;
-
-    gap:.7rem;
-
-    flex-wrap:wrap;
+    display: flex;
+    gap: .7rem;
+    flex-wrap: wrap;
 }
 
 .status-message {
-
-    margin-top:.8rem;
-
-    font-size:.9rem;
-
-    min-height:1.2rem;
+    margin-top: .8rem;
+    font-size: .9rem;
+    min-height: 1.2rem;
 }
 
-
-/* ============================================================
-   ADMIN SONG LIST
-============================================================ */
+/* ADMIN LIST */
 
 .admin-song-list {
+    margin-top: 2rem;
 
-    margin-top:2rem;
+    border-top:
+        2px dashed var(--input-border);
 
-    border-top:2px dashed var(--input-border);
-
-    padding-top:1.5rem;
+    padding-top: 1.5rem;
 }
 
 .admin-song-item {
+    display: flex;
 
-    display:flex;
+    justify-content: space-between;
 
-    justify-content:space-between;
+    align-items: center;
 
-    align-items:center;
+    padding: .7rem 0;
 
-    padding:.7rem 0;
+    border-bottom:
+        1px solid var(--border-color);
 
-    border-bottom:1px solid var(--border-color);
-
-    color:var(--text-color);
+    color: var(--text-color);
 }
 
 .admin-song-item .actions {
+    display: flex;
 
-    display:flex;
+    gap: .5rem;
 
-    gap:.5rem;
+    flex-wrap: wrap;
 
-    flex-wrap:wrap;
-
-    justify-content:flex-end;
+    justify-content: flex-end;
 }
 
 .edit-badge {
+    display: inline-block;
 
-    display:inline-block;
+    margin-left: .5rem;
 
-    margin-left:.5rem;
+    padding: .2rem .55rem;
 
-    padding:.2rem .55rem;
+    border-radius: 12px;
 
-    border-radius:12px;
+    background: #eaf4ff;
 
-    background:#eaf4ff;
+    color: #2471a3;
 
-    color:#2471a3;
+    font-size: .72rem;
 
-    font-size:.72rem;
-
-    font-weight:700;
+    font-weight: 700;
 }
 
-
-/* ============================================================
-   LOGIN
-============================================================ */
+/* LOGIN */
 
 .login-overlay {
+    display: none;
 
-    display:none;
+    position: fixed;
 
-    position:fixed;
+    inset: 0;
 
-    inset:0;
+    background: var(--overlay);
 
-    background:var(--overlay);
+    backdrop-filter: blur(4px);
 
-    backdrop-filter:blur(4px);
+    z-index: 200;
 
-    z-index:200;
+    justify-content: center;
 
-    justify-content:center;
-
-    align-items:center;
+    align-items: center;
 }
 
 .login-overlay.active {
-    display:flex;
+    display: flex;
 }
 
 .login-modal {
+    background: var(--modal-bg);
 
-    background:var(--modal-bg);
+    color: var(--text-color);
 
-    color:var(--text-color);
+    padding: 2.5rem 2rem;
 
-    padding:2.5rem 2rem;
+    border-radius: 24px;
 
-    border-radius:24px;
+    max-width: 380px;
 
-    max-width:380px;
-
-    width:90%;
+    width: 90%;
 
     box-shadow:
         0 20px 50px var(--strong-shadow);
 
-    text-align:center;
+    text-align: center;
 }
 
 .login-modal h2 {
-
-    margin-bottom:1.5rem;
-
-    color:var(--title-color);
+    margin-bottom: 1.5rem;
+    color: var(--title-color);
 }
 
 .login-modal input {
+    width: 100%;
 
-    width:100%;
+    padding: .7rem 1rem;
 
-    padding:.7rem 1rem;
+    margin-bottom: 1rem;
 
-    margin-bottom:1rem;
+    border:
+        2px solid var(--input-border);
 
-    border:2px solid var(--input-border);
+    border-radius: 8px;
 
-    border-radius:8px;
+    font-size: 1rem;
 
-    font-size:1rem;
+    background: var(--input-bg);
 
-    background:var(--input-bg);
+    color: var(--input-text);
 
-    color:var(--input-text);
-
-    outline:none;
+    outline: none;
 }
 
 .login-modal input:focus {
-    border-color:var(--primary);
+    border-color: var(--primary);
 }
 
 .login-modal input::placeholder {
-    color:var(--muted-text);
+    color: var(--muted-text);
 }
 
 .login-modal .btn {
-
-    width:100%;
-
-    padding:.7rem;
+    width: 100%;
+    padding: .7rem;
 }
 
 .login-error {
+    color: #e74c3c;
 
-    color:#e74c3c;
+    font-size: .9rem;
 
-    font-size:.9rem;
-
-    margin-top:.7rem;
+    margin-top: .7rem;
 }
 
-
-/* ============================================================
-   DETAIL
-============================================================ */
+/* DETAIL */
 
 .song-detail-overlay {
+    display: none;
 
-    display:none;
+    position: fixed;
 
-    position:fixed;
+    inset: 0;
 
-    inset:0;
+    background: var(--overlay);
 
-    background:var(--overlay);
+    backdrop-filter: blur(6px);
 
-    backdrop-filter:blur(6px);
+    z-index: 300;
 
-    z-index:300;
+    justify-content: center;
 
-    justify-content:center;
+    align-items: center;
 
-    align-items:center;
-
-    padding:2rem;
+    padding: 2rem;
 }
 
 .song-detail-overlay.active {
-    display:flex;
+    display: flex;
 }
 
 .song-detail-modal {
+    background: var(--modal-bg);
 
-    background:var(--modal-bg);
+    color: var(--text-color);
 
-    color:var(--text-color);
+    border-radius: 28px;
 
-    border-radius:28px;
+    max-width: 720px;
 
-    max-width:720px;
+    width: 100%;
 
-    width:100%;
+    padding: 2.5rem;
 
-    padding:2.5rem;
+    max-height: 90vh;
 
-    max-height:90vh;
+    overflow-y: auto;
 
-    overflow-y:auto;
-
-    position:relative;
+    position: relative;
 
     box-shadow:
         0 20px 60px var(--strong-shadow);
 }
 
 .close-btn {
+    position: absolute;
 
-    position:absolute;
+    top: 1rem;
+    right: 1.5rem;
 
-    top:1rem;
+    font-size: 2rem;
 
-    right:1.5rem;
+    color: var(--muted-text);
 
-    font-size:2rem;
+    cursor: pointer;
 
-    color:var(--muted-text);
+    border: none;
 
-    cursor:pointer;
+    background: none;
 
-    border:none;
-
-    background:none;
-
-    transition:.2s;
+    transition: .2s;
 }
 
 .close-btn:hover {
-
-    color:var(--text-color);
-
-    transform:scale(1.1);
+    color: var(--text-color);
+    transform: scale(1.1);
 }
 
 .detail-title {
+    font-size: 2rem;
 
-    font-size:2rem;
+    font-weight: 700;
 
-    font-weight:700;
+    color: var(--title-color);
 
-    color:var(--title-color);
-
-    padding-right:2rem;
+    padding-right: 2rem;
 }
 
 .detail-title i {
-
-    color:var(--primary-dark);
-
-    margin-right:.5rem;
+    color: var(--primary-dark);
+    margin-right: .5rem;
 }
 
 .detail-lyrics {
+    font-family: Georgia, serif;
 
-    font-family:Georgia,serif;
+    font-size: 1.1rem;
 
-    font-size:1.1rem;
+    line-height: 1.9;
 
-    line-height:1.9;
+    white-space: pre-line;
 
-    white-space:pre-line;
+    color: var(--text-color);
 
-    color:var(--text-color);
+    margin: 1.5rem 0;
 
-    margin:1.5rem 0;
+    padding: 1rem 0;
 
-    padding:1rem 0;
+    border-top:
+        2px solid var(--soft-border);
 
-    border-top:2px solid var(--soft-border);
-
-    border-bottom:2px solid var(--soft-border);
+    border-bottom:
+        2px solid var(--soft-border);
 }
 
 .detail-link a {
-
-    color:var(--link-color);
-
-    text-decoration:none;
+    color: var(--link-color);
+    text-decoration: none;
 }
 
+.detail-link a:hover {
+    text-decoration: underline;
+}
 
-/* ============================================================
-   FOOTER
-============================================================ */
+/* FOOTER */
 
 .footer {
+    background: var(--footer-bg);
 
-    background:var(--footer-bg);
+    color: var(--footer-text);
 
-    color:var(--footer-text);
+    text-align: center;
 
-    text-align:center;
+    padding: 1.2rem;
 
-    padding:1.2rem;
+    font-size: .8rem;
 
-    font-size:.8rem;
-
-    margin-top:2rem;
+    margin-top: 2rem;
 }
 
-
-/* ============================================================
-   MOBILE
-============================================================ */
+/* RESPONSIVE */
 
 @media(max-width:650px) {
 
     .header {
-
-        flex-direction:column;
-
-        align-items:stretch;
-
-        gap:.8rem;
+        flex-direction: column;
+        align-items: stretch;
+        gap: .8rem;
     }
 
     .header-controls {
-        justify-content:center;
+        justify-content: center;
     }
 
     .search-wrap {
-        width:100%;
+        width: 100%;
     }
 
     #searchInput {
-
-        width:100%;
-
-        min-width:150px;
+        width: 100%;
+        min-width: 150px;
     }
 
     .songs-grid {
-        grid-template-columns:1fr;
+        grid-template-columns: 1fr;
     }
 
     .song-detail-modal {
-        padding:1.5rem;
+        padding: 1.5rem;
     }
 
     .admin-song-item {
-
-        align-items:flex-start;
-
-        gap:.7rem;
-
-        flex-direction:column;
+        align-items: flex-start;
+        gap: .7rem;
+        flex-direction: column;
     }
 
     .admin-song-item .actions {
-
-        width:100%;
-
-        justify-content:flex-start;
+        width: 100%;
+        justify-content: flex-start;
     }
 
     .detail-title {
-        font-size:1.5rem;
+        font-size: 1.5rem;
     }
 }
 
 </style>
 </head>
 
-
 <body>
-
-
-<!-- ============================================================
-     HEADER
-============================================================ -->
 
 <header class="header">
 
@@ -1106,7 +945,6 @@ body {
         <i class="fas fa-cross"></i>
         Jesus Songs
     </h1>
-
 
     <div class="header-controls">
 
@@ -1119,13 +957,13 @@ body {
                 id="searchInput"
                 placeholder="Search songs..."
                 autocomplete="off"
-                spellcheck="false"
             >
 
             <button
                 type="button"
-                id="searchClearBtn"
                 class="search-clear"
+                id="searchClearBtn"
+                aria-label="Clear search"
                 title="Clear search"
             >
                 <i class="fas fa-times"></i>
@@ -1133,14 +971,12 @@ body {
 
         </div>
 
-
         <span
             class="song-count"
             id="songCount"
         >
             Loading...
         </span>
-
 
         <button
             id="themeToggleBtn"
@@ -1159,7 +995,6 @@ body {
 
         </button>
 
-
         <button
             class="btn btn-outline"
             id="adminToggleBtn"
@@ -1176,9 +1011,7 @@ body {
 </header>
 
 
-<!-- ============================================================
-     LOGIN
-============================================================ -->
+<!-- LOGIN -->
 
 <div
     class="login-overlay"
@@ -1192,20 +1025,17 @@ body {
             Admin Login
         </h2>
 
-
         <input
             type="email"
             id="loginEmail"
             placeholder="Admin Email"
         >
 
-
         <input
             type="password"
             id="loginPassword"
             placeholder="Password"
         >
-
 
         <button
             class="btn"
@@ -1214,12 +1044,10 @@ body {
             Login
         </button>
 
-
         <div
             class="login-error"
             id="loginError"
         ></div>
-
 
         <p
             style="
@@ -1236,9 +1064,7 @@ body {
 </div>
 
 
-<!-- ============================================================
-     SONG DETAIL
-============================================================ -->
+<!-- SONG DETAIL -->
 
 <div
     class="song-detail-overlay"
@@ -1254,7 +1080,6 @@ body {
             &times;
         </button>
 
-
         <div
             class="detail-title"
             id="detailTitle"
@@ -1262,12 +1087,10 @@ body {
             Song
         </div>
 
-
         <div
             class="detail-lyrics"
             id="detailLyrics"
         ></div>
-
 
         <div
             class="detail-link"
@@ -1279,14 +1102,17 @@ body {
 </div>
 
 
-<!-- ============================================================
-     MAIN
-============================================================ -->
-
 <main class="main">
 
+    <!-- SEARCH INFO -->
 
-    <!-- ADMIN PANEL -->
+    <div
+        class="search-info"
+        id="searchInfo"
+    ></div>
+
+
+    <!-- ADMIN -->
 
     <div
         class="admin-panel"
@@ -1299,16 +1125,16 @@ body {
             value=""
         >
 
-
         <h2>
             <i class="fas fa-plus-circle"></i>
             Add New Song
         </h2>
 
-
         <div class="form-group">
 
-            <label>Song Title *</label>
+            <label>
+                Song Title *
+            </label>
 
             <input
                 type="text"
@@ -1318,10 +1144,11 @@ body {
 
         </div>
 
-
         <div class="form-group">
 
-            <label>Lyrics *</label>
+            <label>
+                Lyrics *
+            </label>
 
             <textarea
                 id="songLyrics"
@@ -1330,10 +1157,11 @@ body {
 
         </div>
 
-
         <div class="form-group">
 
-            <label>Audio / YouTube Link</label>
+            <label>
+                Audio / YouTube Link
+            </label>
 
             <input
                 type="url"
@@ -1343,10 +1171,11 @@ body {
 
         </div>
 
-
         <div class="form-group">
 
-            <label>Category</label>
+            <label>
+                Category
+            </label>
 
             <input
                 type="text"
@@ -1356,20 +1185,15 @@ body {
 
         </div>
 
-
         <div class="form-actions">
 
             <button
                 class="btn"
                 id="addSongBtn"
             >
-
                 <i class="fas fa-save"></i>
-
                 Add Song
-
             </button>
-
 
             <button
                 class="btn btn-cancel"
@@ -1377,21 +1201,16 @@ body {
                 type="button"
                 style="display:none;"
             >
-
                 <i class="fas fa-times"></i>
-
                 Cancel Edit
-
             </button>
 
         </div>
-
 
         <div
             class="status-message"
             id="formStatus"
         ></div>
-
 
         <hr
             style="
@@ -1400,7 +1219,6 @@ body {
             border-top:1px solid var(--border-color);
             "
         >
-
 
         <div
             style="
@@ -1415,7 +1233,6 @@ body {
                 Existing Songs
             </h3>
 
-
             <button
                 class="btn btn-danger"
                 id="logoutBtn"
@@ -1425,7 +1242,6 @@ body {
 
         </div>
 
-
         <div
             class="admin-song-list"
             id="adminSongList"
@@ -1434,7 +1250,7 @@ body {
     </div>
 
 
-    <!-- PUBLIC SONGS -->
+    <!-- SONGS -->
 
     <div
         class="songs-grid"
@@ -1443,10 +1259,6 @@ body {
 
 </main>
 
-
-<!-- ============================================================
-     FOOTER
-============================================================ -->
 
 <footer class="footer">
 
@@ -1486,6 +1298,8 @@ let searchQuery = "";
 
 let currentUser = null;
 
+let searchIndex = [];
+
 
 /* ============================================================
    DOM
@@ -1499,6 +1313,9 @@ const searchInput =
 
 const searchClearBtn =
     document.getElementById("searchClearBtn");
+
+const searchInfo =
+    document.getElementById("searchInfo");
 
 const songCount =
     document.getElementById("songCount");
@@ -1569,11 +1386,6 @@ const detailLyrics =
 const detailLink =
     document.getElementById("detailLink");
 
-
-/* ============================================================
-   THEME DOM
-============================================================ */
-
 const themeToggleBtn =
     document.getElementById("themeToggleBtn");
 
@@ -1632,16 +1444,12 @@ function initializeTheme() {
         );
 
     if (savedTheme === "dark") {
-
         applyTheme("dark");
-
         return;
     }
 
     if (savedTheme === "light") {
-
         applyTheme("light");
-
         return;
     }
 
@@ -1675,162 +1483,105 @@ themeToggleBtn.addEventListener(
 
 
 /* ============================================================
-   ============================================================
-   IMPROVED TELUGU ROMAN SEARCH ENGINE
-   ============================================================
+   TELUGU ROMANIZATION
+   ------------------------------------------------------------
+   Better transliteration for search.
 ============================================================ */
-
-
-/*
-    Telugu independent vowels
-*/
 
 const TELUGU_VOWELS = {
 
-    "అ":"a",
-    "ఆ":"aa",
-    "ఇ":"i",
-    "ఈ":"ii",
-    "ఉ":"u",
-    "ఊ":"uu",
-    "ఋ":"ru",
-    "ఎ":"e",
-    "ఏ":"ee",
-    "ఐ":"ai",
-    "ఒ":"o",
-    "ఓ":"oo",
-    "ఔ":"au"
+    "అ": "a",
+    "ఆ": "aa",
+    "ఇ": "i",
+    "ఈ": "ee",
+    "ఉ": "u",
+    "ఊ": "oo",
+    "ఋ": "ru",
+    "ఎ": "e",
+    "ఏ": "ee",
+    "ఐ": "ai",
+    "ఒ": "o",
+    "ఓ": "oo",
+    "ఔ": "au"
 
 };
 
-
-/*
-    Telugu consonants
-*/
 
 const TELUGU_CONSONANTS = {
 
-    "క":"k",
-    "ఖ":"kh",
-    "గ":"g",
-    "ఘ":"gh",
-    "ఙ":"ng",
+    "క": "k",
+    "ఖ": "kh",
+    "గ": "g",
+    "ఘ": "gh",
+    "ఙ": "ng",
 
-    "చ":"ch",
-    "ఛ":"chh",
-    "జ":"j",
-    "ఝ":"jh",
-    "ఞ":"ny",
+    "చ": "ch",
+    "ఛ": "chh",
+    "జ": "j",
+    "ఝ": "jh",
+    "ఞ": "ny",
 
-    "ట":"t",
-    "ఠ":"th",
-    "డ":"d",
-    "ఢ":"dh",
-    "ణ":"n",
+    "ట": "t",
+    "ఠ": "th",
+    "డ": "d",
+    "ఢ": "dh",
+    "ణ": "n",
 
-    "త":"t",
-    "థ":"th",
-    "ద":"d",
-    "ధ":"dh",
-    "న":"n",
+    "త": "t",
+    "థ": "th",
+    "ద": "d",
+    "ధ": "dh",
+    "న": "n",
 
-    "ప":"p",
-    "ఫ":"ph",
-    "బ":"b",
-    "భ":"bh",
-    "మ":"m",
+    "ప": "p",
+    "ఫ": "ph",
+    "బ": "b",
+    "భ": "bh",
+    "మ": "m",
 
-    "య":"y",
-    "ర":"r",
-    "ల":"l",
-    "వ":"v",
+    "య": "y",
+    "ర": "r",
+    "ల": "l",
+    "వ": "v",
 
-    "శ":"sh",
-    "ష":"sh",
-    "స":"s",
-    "హ":"h",
+    "శ": "sh",
+    "ష": "sh",
+    "స": "s",
+    "హ": "h",
 
-    "ళ":"l",
-    "ఱ":"r"
+    "ళ": "l",
+    "ఱ": "r",
 
+    "క్ష": "ksha"
 };
 
-
-/*
-    Telugu vowel signs
-*/
 
 const TELUGU_SIGNS = {
 
-    "ా":"aa",
-    "ి":"i",
-    "ీ":"ii",
-    "ు":"u",
-    "ూ":"uu",
-    "ృ":"ru",
-    "ె":"e",
-    "ే":"ee",
-    "ై":"ai",
-    "ొ":"o",
-    "ో":"oo",
-    "ౌ":"au"
+    "ా": "aa",
+    "ి": "i",
+    "ీ": "ee",
+    "ు": "u",
+    "ూ": "oo",
+    "ృ": "ru",
+    "ె": "e",
+    "ే": "ee",
+    "ై": "ai",
+    "ొ": "o",
+    "ో": "oo",
+    "ౌ": "au"
 
 };
 
-
-/*
-    Special characters
-*/
 
 const TELUGU_SPECIAL = {
 
-    "ం":"m",
-    "ః":"h",
-    "ఁ":"m"
+    "ం": "m",
+    "ః": "h",
+    "ఁ": "m"
 
 };
 
-
-/*
-    Common Telugu combined letters.
-
-    These are handled BEFORE normal character
-    processing.
-*/
-
-const TELUGU_COMBINED = {
-
-    "క్ష":"ksha",
-    "జ్ఞ":"gnya",
-    "శ్ర":"shra",
-    "త్ర":"tra",
-    "గ్ర":"gra",
-    "ప్ర":"pra",
-    "క్ర":"kra",
-    "బ్ర":"bra",
-    "ద్ర":"dra",
-    "చ్ర":"chra",
-    "స్ర":"sra",
-    "వ్ర":"vra",
-    "మ్ర":"mra",
-    "ప్ల":"pla",
-    "క్ల":"kla",
-    "గ్ల":"gla",
-    "బ్ల":"bla",
-    "స్ల":"sla",
-    "శ్వ":"shva",
-    "స్వ":"sva",
-    "త్వ":"tva",
-    "ద్వ":"dva",
-    "ధ్వ":"dhva",
-    "న్వ":"nva"
-
-};
-
-
-/* ============================================================
-   TELUGU → ROMAN
-============================================================ */
 
 function transliterateTelugu(text) {
 
@@ -1838,13 +1589,10 @@ function transliterateTelugu(text) {
         return "";
     }
 
-    let result = "";
-
     const chars =
-        Array.from(
-            String(text)
-        );
+        Array.from(String(text));
 
+    let result = "";
 
     for (
         let i = 0;
@@ -1852,92 +1600,40 @@ function transliterateTelugu(text) {
         i++
     ) {
 
-        let char =
+        const ch =
             chars[i];
 
+        /* VOWEL */
 
-        /*
-            Handle combined letters
-        */
-
-        const pair =
-            char +
-            (chars[i + 1] || "");
-
-
-        if (
-            TELUGU_COMBINED[pair]
-        ) {
+        if (TELUGU_VOWELS[ch]) {
 
             result +=
-                TELUGU_COMBINED[pair];
-
-            i++;
+                TELUGU_VOWELS[ch];
 
             continue;
         }
 
+        /* SPECIAL */
 
-        /*
-            Independent vowel
-        */
-
-        if (
-            TELUGU_VOWELS[char]
-        ) {
+        if (TELUGU_SPECIAL[ch]) {
 
             result +=
-                TELUGU_VOWELS[char];
+                TELUGU_SPECIAL[ch];
 
             continue;
         }
 
+        /* CONSONANT */
 
-        /*
-            Special character
-        */
+        if (TELUGU_CONSONANTS[ch]) {
 
-        if (
-            TELUGU_SPECIAL[char]
-        ) {
-
-            result +=
-                TELUGU_SPECIAL[char];
-
-            continue;
-        }
-
-
-        /*
-            Virama
-        */
-
-        if (
-            char === "్"
-        ) {
-
-            continue;
-        }
-
-
-        /*
-            Consonant
-        */
-
-        if (
-            TELUGU_CONSONANTS[char]
-        ) {
-
-            const consonant =
-                TELUGU_CONSONANTS[char];
+            let consonant =
+                TELUGU_CONSONANTS[ch];
 
             const next =
                 chars[i + 1];
 
-
-            /*
-                Vowel sign
-            */
+            /* vowel sign */
 
             if (
                 next &&
@@ -1953,28 +1649,18 @@ function transliterateTelugu(text) {
                 continue;
             }
 
+            /* virama */
 
-            /*
-                Explicit virama
-            */
+            if (next === "్") {
 
-            if (
-                next === "్"
-            ) {
-
-                result +=
-                    consonant;
+                result += consonant;
 
                 i++;
 
                 continue;
             }
 
-
-            /*
-                Telugu consonants normally
-                carry an "a".
-            */
+            /* default inherent a */
 
             result +=
                 consonant + "a";
@@ -1982,15 +1668,15 @@ function transliterateTelugu(text) {
             continue;
         }
 
+        /* VIRAMA */
 
-        /*
-            Anything else
-        */
+        if (ch === "్") {
 
-        result += char;
+            continue;
+        }
 
+        result += ch;
     }
-
 
     return result;
 }
@@ -2002,642 +1688,1063 @@ function transliterateTelugu(text) {
 
 function basicNormalize(text) {
 
-    if (!text) {
-        return "";
-    }
-
-    return String(text)
-
+    return String(text || "")
         .toLowerCase()
-
         .normalize("NFD")
-
         .replace(
             /[\u0300-\u036f]/g,
             ""
         )
-
         .replace(
             /[\u200B-\u200D\uFEFF]/g,
             ""
         )
-
+        .replace(
+            /[^\p{L}\p{N}\s]/gu,
+            " "
+        )
         .replace(
             /\s+/g,
             " "
         )
-
         .trim();
 }
 
 
-/* ============================================================
-   ROMAN CANONICAL FORM
-============================================================ */
+/*
+   Converts different Roman Telugu spellings
+   into a common searchable form.
+*/
 
 function romanCanonical(text) {
-
-    if (!text) {
-        return "";
-    }
-
 
     let value =
         basicNormalize(text);
 
-
-    /*
-        Convert common alternate spellings
-        into a single searchable form.
-    */
+    if (!value) {
+        return "";
+    }
 
     value =
         value
+            .replace(/aa/g, "a")
+            .replace(/ee/g, "e")
+            .replace(/ii/g, "i")
+            .replace(/oo/g, "o")
+            .replace(/uu/g, "u")
 
-        .replace(/aa/g,"a")
-        .replace(/ee/g,"e")
-        .replace(/ii/g,"i")
-        .replace(/uu/g,"u")
-        .replace(/oo/g,"o")
+            .replace(/chh/g, "ch")
+            .replace(/tsh/g, "ch")
+            .replace(/sh/g, "s")
 
-        .replace(/ksh/g,"x")
-        .replace(/chh/g,"ch")
+            .replace(/ksh/g, "ksh")
 
-        .replace(/kh/g,"k")
-        .replace(/gh/g,"g")
-        .replace(/jh/g,"j")
-        .replace(/th/g,"t")
-        .replace(/dh/g,"d")
-        .replace(/bh/g,"b")
-        .replace(/ph/g,"p")
+            .replace(/kh/g, "k")
+            .replace(/gh/g, "g")
+            .replace(/jh/g, "j")
+            .replace(/dh/g, "d")
+            .replace(/bh/g, "b")
+            .replace(/ph/g, "p")
+            .replace(/th/g, "t")
 
-        .replace(/sh/g,"s")
-        .replace(/zh/g,"j")
+            .replace(/w/g, "v")
+            .replace(/q/g, "k")
+            .replace(/x/g, "ks")
+            .replace(/z/g, "j");
 
-        /*
-            v/w are often typed differently
-        */
-
-        .replace(/w/g,"v")
-
-        /*
-            y variations
-        */
-
-        .replace(/yy/g,"y")
-
-        /*
-            Remove punctuation
-        */
-
-        .replace(
-            /[^a-z0-9\u0C00-\u0C7F\s]/g,
-            " "
-        )
-
-        .replace(
-            /\s+/g,
-            " "
-        )
-
+    return value
+        .replace(/\s+/g, " ")
         .trim();
-
-
-    return value;
 }
 
 
 /* ============================================================
-   SEARCH FORM GENERATOR
+   SEARCH VARIANTS
 ============================================================ */
 
-function generateRomanVariants(text) {
-
-    const normalized =
-        basicNormalize(text);
-
-
-    const teluguRoman =
-        transliterateTelugu(
-            normalized
-        );
-
-
-    const variants = new Set();
-
-
-    variants.add(
-        basicNormalize(
-            normalized
-        )
-    );
-
-
-    variants.add(
-        basicNormalize(
-            teluguRoman
-        )
-    );
-
-
-    variants.add(
-        romanCanonical(
-            normalized
-        )
-    );
-
-
-    variants.add(
-        romanCanonical(
-            teluguRoman
-        )
-    );
-
-
-    /*
-        Extra variants
-    */
+function createRomanVariants(text) {
 
     const base =
-        basicNormalize(
-            teluguRoman
-        );
+        basicNormalize(text);
 
-
-    if (base) {
-
-        variants.add(
-            base
-                .replace(/aa/g,"a")
-                .replace(/ee/g,"e")
-                .replace(/ii/g,"i")
-                .replace(/uu/g,"u")
-                .replace(/oo/g,"o")
-        );
-
-
-        variants.add(
-            base
-                .replace(/a/g,"aa")
-                .replace(/e/g,"ee")
-                .replace(/i/g,"ii")
-                .replace(/u/g,"uu")
-                .replace(/o/g,"oo")
-        );
-
+    if (!base) {
+        return [];
     }
 
+    const canonical =
+        romanCanonical(base);
+
+    const variants =
+        new Set();
+
+    variants.add(base);
+
+    variants.add(canonical);
+
+    /*
+       Common Telugu Roman spellings.
+    */
+
+    variants.add(
+        base
+            .replace(/aa/g, "a")
+            .replace(/ee/g, "e")
+            .replace(/ii/g, "i")
+            .replace(/oo/g, "o")
+            .replace(/uu/g, "u")
+    );
+
+    variants.add(
+        base
+            .replace(/sh/g, "s")
+            .replace(/ch/g, "c")
+            .replace(/kh/g, "k")
+            .replace(/gh/g, "g")
+            .replace(/dh/g, "d")
+            .replace(/bh/g, "b")
+            .replace(/ph/g, "p")
+            .replace(/th/g, "t")
+    );
+
+    variants.add(
+        base
+            .replace(/c/g, "ch")
+            .replace(/s/g, "sh")
+    );
 
     return [
         ...variants
-    ].filter(Boolean);
-}
-
-
-/* ============================================================
-   SONG SEARCH DATA
-============================================================ */
-
-function createSongSearchData(song) {
-
-    const title =
-        song.title || "";
-
-    const lyrics =
-        song.lyrics || "";
-
-    const category =
-        song.category || "";
-
-    const artist =
-        song.artist || "";
-
-
-    const combined =
-        [
-            title,
-            lyrics,
-            category,
-            artist
-        ].join(" ");
-
-
-    /*
-        Original text
-    */
-
-    const original =
-        basicNormalize(
-            combined
-        );
-
-
-    /*
-        Telugu → Roman
-    */
-
-    const teluguRoman =
-        basicNormalize(
-            transliterateTelugu(
-                combined
-            )
-        );
-
-
-    /*
-        Canonical Roman
-    */
-
-    const canonicalOriginal =
-        romanCanonical(
-            combined
-        );
-
-
-    const canonicalRoman =
-        romanCanonical(
-            teluguRoman
-        );
-
-
-    /*
-        Create variants
-    */
-
-    const variants = new Set();
-
-
-    generateRomanVariants(
-        combined
-    ).forEach(
-        value =>
-            variants.add(value)
-    );
-
-
-    generateRomanVariants(
-        teluguRoman
-    ).forEach(
-        value =>
-            variants.add(value)
-    );
-
-
-    return {
-
-        original,
-
-        teluguRoman,
-
-        canonicalOriginal,
-
-        canonicalRoman,
-
-        variants:[
-            ...variants
-        ]
-
-    };
-}
-
-
-/* ============================================================
-   TOKEN SEARCH
-============================================================ */
-
-function tokenize(text) {
-
-    return basicNormalize(text)
-
-        .split(/\s+/)
-
-        .map(
-            x => x.trim()
+    ]
+        .map(x =>
+            x
+                .replace(/\s+/g, " ")
+                .trim()
         )
-
         .filter(Boolean);
 }
 
 
 /* ============================================================
-   PHONETIC TOKEN
+   TOKENIZATION
 ============================================================ */
 
-function phoneticToken(word) {
+function getTokens(text) {
 
-    if (!word) {
-        return "";
-    }
-
-
-    let value =
-        romanCanonical(
-            word
-        );
+    return basicNormalize(text)
+        .split(/\s+/)
+        .filter(Boolean);
+}
 
 
-    /*
-        Remove very common pronunciation
-        differences.
-    */
+function getRomanTokens(text) {
 
-    value =
-        value
-
-        .replace(/v/g,"b")
-        .replace(/q/g,"k")
-        .replace(/c/g,"k")
-        .replace(/z/g,"j")
-
-        .replace(/h+/g,"h")
-
-        .replace(
-            /(.)\1+/g,
-            "$1"
-        );
-
-
-    return value;
+    return romanCanonical(
+        text
+    )
+        .split(/\s+/)
+        .filter(Boolean);
 }
 
 
 /* ============================================================
-   WORD MATCH
+   LEVENSHTEIN DISTANCE
 ============================================================ */
 
-function searchWordMatches(
-    word,
-    searchData
-) {
+function levenshtein(a, b) {
 
-    const originalWord =
-        basicNormalize(
-            word
-        );
+    a = String(a || "");
+    b = String(b || "");
 
-
-    if (!originalWord) {
-        return true;
+    if (a === b) {
+        return 0;
     }
 
-
-    /*
-        Telugu query:
-        యేసయ్య
-    */
-
-    const queryRoman =
-        transliterateTelugu(
-            originalWord
-        );
-
-
-    /*
-        Canonical:
-        yesayya → yesaya
-    */
-
-    const queryCanonical =
-        romanCanonical(
-            originalWord
-        );
-
-
-    const queryRomanCanonical =
-        romanCanonical(
-            queryRoman
-        );
-
-
-    const queryPhonetic =
-        phoneticToken(
-            queryRoman ||
-            originalWord
-        );
-
-
-    /*
-        Direct original match
-    */
-
-    if (
-        searchData.original
-            .includes(originalWord)
-    ) {
-
-        return true;
+    if (!a.length) {
+        return b.length;
     }
 
-
-    /*
-        Roman match
-    */
-
-    if (
-        searchData.teluguRoman
-            .includes(
-                basicNormalize(
-                    queryRoman
-                )
-            )
-    ) {
-
-        return true;
+    if (!b.length) {
+        return a.length;
     }
 
-
-    /*
-        Canonical match
-    */
-
-    if (
-        searchData.canonicalOriginal
-            .includes(
-                queryCanonical
-            )
-    ) {
-
-        return true;
-    }
-
-
-    if (
-        searchData.canonicalRoman
-            .includes(
-                queryRomanCanonical
-            )
-    ) {
-
-        return true;
-    }
-
-
-    /*
-        Search all variants
-    */
+    let previous =
+        Array.from(
+            { length: b.length + 1 },
+            (_, i) => i
+        );
 
     for (
-        const variant
-        of searchData.variants
+        let i = 1;
+        i <= a.length;
+        i++
     ) {
 
-        if (
-            variant.includes(
-                originalWord
-            )
-        ) {
-
-            return true;
-        }
-
-
-        if (
-            queryRoman &&
-            variant.includes(
-                basicNormalize(
-                    queryRoman
-                )
-            )
-        ) {
-
-            return true;
-        }
-
-
-        if (
-            queryCanonical &&
-            variant.includes(
-                queryCanonical
-            )
-        ) {
-
-            return true;
-        }
-
-
-        if (
-            queryRomanCanonical &&
-            variant.includes(
-                queryRomanCanonical
-            )
-        ) {
-
-            return true;
-        }
-
-    }
-
-
-    /*
-        Phonetic token matching
-    */
-
-    if (queryPhonetic) {
+        const current =
+            [i];
 
         for (
-            const variant
-            of searchData.variants
+            let j = 1;
+            j <= b.length;
+            j++
         ) {
 
-            const variantWords =
-                tokenize(
-                    variant
+            const insert =
+                current[j - 1] + 1;
+
+            const remove =
+                previous[j] + 1;
+
+            const replace =
+                previous[j - 1] +
+                (
+                    a[i - 1] === b[j - 1]
+                        ? 0
+                        : 1
                 );
 
-
-            for (
-                const variantWord
-                of variantWords
-            ) {
-
-                const vp =
-                    phoneticToken(
-                        variantWord
-                    );
-
-
-                if (
-                    vp &&
-                    (
-                        vp.includes(
-                            queryPhonetic
-                        )
-                        ||
-                        queryPhonetic.includes(
-                            vp
-                        )
-                    )
-                ) {
-
-                    return true;
-                }
-
-            }
-
+            current[j] =
+                Math.min(
+                    insert,
+                    remove,
+                    replace
+                );
         }
 
+        previous =
+            current;
     }
 
+    return previous[b.length];
+}
+
+
+/* ============================================================
+   FUZZY WORD MATCH
+============================================================ */
+
+function fuzzyWordMatch(
+    queryWord,
+    targetWord
+) {
+
+    if (
+        !queryWord ||
+        !targetWord
+    ) {
+        return false;
+    }
+
+    if (
+        targetWord === queryWord
+    ) {
+        return true;
+    }
+
+    /*
+       Prefix matching.
+       Example:
+       yes -> yesayya
+       nam -> namaskaram
+    */
+
+    if (
+        targetWord.startsWith(
+            queryWord
+        )
+    ) {
+        return true;
+    }
+
+    if (
+        queryWord.length >= 3 &&
+        targetWord.includes(queryWord)
+    ) {
+        return true;
+    }
+
+    /*
+       Small typo correction.
+    */
+
+    if (
+        queryWord.length >= 4 &&
+        Math.abs(
+            queryWord.length -
+            targetWord.length
+        ) <= 2
+    ) {
+
+        const distance =
+            levenshtein(
+                queryWord,
+                targetWord
+            );
+
+        const allowed =
+            queryWord.length >= 7
+                ? 2
+                : 1;
+
+        if (distance <= allowed) {
+            return true;
+        }
+    }
 
     return false;
 }
 
 
 /* ============================================================
-   FINAL SONG SEARCH
+   SEARCH INDEX
 ============================================================ */
 
-function songMatchesSearch(
-    song,
+function buildSearchIndex() {
+
+    searchIndex =
+        songs.map(song => {
+
+            const title =
+                String(
+                    song.title || ""
+                );
+
+            const lyrics =
+                String(
+                    song.lyrics || ""
+                );
+
+            const artist =
+                String(
+                    song.artist || ""
+                );
+
+            const category =
+                String(
+                    song.category || ""
+                );
+
+            const combined =
+                [
+                    title,
+                    lyrics,
+                    artist,
+                    category
+                ].join(" ");
+
+
+            const teluguRoman =
+                transliterateTelugu(
+                    combined
+                );
+
+
+            const original =
+                basicNormalize(
+                    combined
+                );
+
+
+            const roman =
+                basicNormalize(
+                    teluguRoman
+                );
+
+
+            const canonical =
+                romanCanonical(
+                    teluguRoman
+                );
+
+
+            return {
+
+                song,
+
+                title:
+                    basicNormalize(title),
+
+                titleRoman:
+                    romanCanonical(
+                        transliterateTelugu(
+                            title
+                        )
+                    ),
+
+                original,
+
+                roman,
+
+                canonical,
+
+                originalTokens:
+                    getTokens(combined),
+
+                romanTokens:
+                    getRomanTokens(
+                        teluguRoman
+                    )
+
+            };
+
+        });
+
+}
+
+
+/* ============================================================
+   SEARCH SCORE
+============================================================ */
+
+function calculateSearchScore(
+    item,
     query
 ) {
 
-    if (!query) {
-        return true;
+    const q =
+        basicNormalize(query);
+
+    if (!q) {
+        return 1;
     }
 
-
-    const normalizedQuery =
-        basicNormalize(
-            query
+    const qRoman =
+        romanCanonical(
+            transliterateTelugu(q)
         );
 
+    const qCanonical =
+        romanCanonical(q);
 
-    if (!normalizedQuery) {
-        return true;
+    const queryWords =
+        q
+            .split(/\s+/)
+            .filter(Boolean);
+
+    const romanQueryWords =
+        qRoman
+            .split(/\s+/)
+            .filter(Boolean);
+
+    const canonicalQueryWords =
+        qCanonical
+            .split(/\s+/)
+            .filter(Boolean);
+
+
+    let score = 0;
+
+    /*
+       EXACT FULL TITLE
+    */
+
+    if (
+        item.title === q
+    ) {
+        score += 1000;
     }
 
-
-    const searchData =
-        createSongSearchData(
-            song
-        );
+    if (
+        item.titleRoman === qCanonical ||
+        item.titleRoman === qRoman
+    ) {
+        score += 1000;
+    }
 
 
     /*
-        Important:
-        Search each word separately.
-
-        Example:
-
-        "yesayya song"
-
-        Both words must exist somewhere.
+       TITLE STARTS WITH QUERY
     */
 
-    const words =
-        tokenize(
-            normalizedQuery
+    if (
+        item.title.startsWith(q)
+    ) {
+        score += 700;
+    }
+
+    if (
+        item.titleRoman.startsWith(
+            qCanonical
+        )
+    ) {
+        score += 700;
+    }
+
+
+    /*
+       TITLE CONTAINS QUERY
+    */
+
+    if (
+        item.title.includes(q)
+    ) {
+        score += 500;
+    }
+
+    if (
+        qCanonical &&
+        item.titleRoman.includes(
+            qCanonical
+        )
+    ) {
+        score += 500;
+    }
+
+
+    /*
+       FULL CONTENT
+    */
+
+    if (
+        item.original.includes(q)
+    ) {
+        score += 250;
+    }
+
+    if (
+        qCanonical &&
+        item.canonical.includes(
+            qCanonical
+        )
+    ) {
+        score += 300;
+    }
+
+    if (
+        qRoman &&
+        item.roman.includes(qRoman)
+    ) {
+        score += 300;
+    }
+
+
+    /*
+       WORD-BY-WORD MATCHING
+    */
+
+    let matchedWords = 0;
+
+    for (
+        let i = 0;
+        i < queryWords.length;
+        i++
+    ) {
+
+        const word =
+            queryWords[i];
+
+        const romanWord =
+            romanQueryWords[i] ||
+            canonicalQueryWords[i] ||
+            romanCanonical(word);
+
+
+        let matched =
+            false;
+
+
+        /*
+           Original Telugu / English word
+        */
+
+        for (
+            const target of
+            item.originalTokens
+        ) {
+
+            if (
+                fuzzyWordMatch(
+                    word,
+                    target
+                )
+            ) {
+
+                matched = true;
+
+                score += 100;
+
+                break;
+            }
+        }
+
+
+        /*
+           Roman Telugu word
+        */
+
+        if (!matched) {
+
+            for (
+                const target of
+                item.romanTokens
+            ) {
+
+                if (
+                    fuzzyWordMatch(
+                        romanWord,
+                        target
+                    )
+                ) {
+
+                    matched = true;
+
+                    score += 120;
+
+                    break;
+                }
+            }
+        }
+
+
+        /*
+           Canonical Roman search
+        */
+
+        if (!matched) {
+
+            const canonicalWord =
+                romanCanonical(
+                    word
+                );
+
+            for (
+                const target of
+                item.romanTokens
+            ) {
+
+                if (
+                    fuzzyWordMatch(
+                        canonicalWord,
+                        target
+                    )
+                ) {
+
+                    matched = true;
+
+                    score += 110;
+
+                    break;
+                }
+            }
+        }
+
+
+        if (matched) {
+            matchedWords++;
+        }
+
+    }
+
+
+    /*
+       YouTube-like:
+       More matched words = better result.
+    */
+
+    if (
+        queryWords.length > 0
+    ) {
+
+        score +=
+            (
+                matchedWords /
+                queryWords.length
+            ) * 400;
+
+    }
+
+
+    /*
+       If nothing matches, return zero.
+    */
+
+    if (
+        score === 0
+    ) {
+
+        /*
+           One final fuzzy substring check.
+        */
+
+        const allVariants =
+            createRomanVariants(q);
+
+        for (
+            const variant of allVariants
+        ) {
+
+            if (
+                variant &&
+                item.canonical.includes(
+                    romanCanonical(
+                        variant
+                    )
+                )
+            ) {
+
+                score += 50;
+
+                break;
+            }
+        }
+    }
+
+
+    return score;
+}
+
+
+/* ============================================================
+   SEARCH SONGS
+============================================================ */
+
+function searchSongs(query) {
+
+    const cleanQuery =
+        String(query || "")
+            .trim();
+
+    if (!cleanQuery) {
+
+        return songs.map(
+            (song, index) => ({
+                song,
+                score: 0,
+                index
+            })
+        );
+    }
+
+
+    const results = [];
+
+
+    for (
+        let i = 0;
+        i < searchIndex.length;
+        i++
+    ) {
+
+        const item =
+            searchIndex[i];
+
+        const score =
+            calculateSearchScore(
+                item,
+                cleanQuery
+            );
+
+        if (
+            score > 0
+        ) {
+
+            results.push({
+
+                song:
+                    item.song,
+
+                score,
+
+                index: i
+
+            });
+
+        }
+
+    }
+
+
+    /*
+       Highest relevance first.
+    */
+
+    results.sort(
+        (a, b) => {
+
+            if (
+                b.score !== a.score
+            ) {
+
+                return (
+                    b.score -
+                    a.score
+                );
+            }
+
+            return (
+                a.index -
+                b.index
+            );
+
+        }
+    );
+
+
+    return results;
+}
+
+
+/* ============================================================
+   SEARCH INFO
+============================================================ */
+
+function updateSearchUI(
+    query,
+    resultCount
+) {
+
+    const clean =
+        query.trim();
+
+    if (!clean) {
+
+        searchInfo.classList.remove(
+            "active"
+        );
+
+        searchClearBtn.classList.remove(
+            "visible"
+        );
+
+        return;
+    }
+
+
+    searchInfo.classList.add(
+        "active"
+    );
+
+    searchClearBtn.classList.add(
+        "visible"
+    );
+
+
+    searchInfo.innerHTML = `
+
+        <i class="fas fa-search"></i>
+
+        Results for
+
+        <strong>
+            "${escapeHTML(clean)}"
+        </strong>
+
+        — ${resultCount}
+        song${resultCount !== 1 ? "s" : ""} found
+
+    `;
+}
+
+
+/* ============================================================
+   RENDER SONGS
+============================================================ */
+
+function renderSongs() {
+
+    const query =
+        searchQuery.trim();
+
+
+    if (
+        songs.length === 0
+    ) {
+
+        songCount.textContent =
+            "0 songs";
+
+        updateSearchUI(
+            "",
+            0
+        );
+
+        grid.innerHTML = `
+
+            <div class="no-results">
+
+                <div class="no-results-icon">
+
+                    <i class="fas fa-music"></i>
+
+                </div>
+
+                <div class="no-results-title">
+
+                    No data found
+
+                </div>
+
+                <div class="no-results-text">
+
+                    Admin hasn't added any songs yet.
+
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    const results =
+        searchSongs(query);
+
+
+    const filtered =
+        results.map(
+            result =>
+                result.song
         );
 
 
-    return words.every(
-        word =>
-            searchWordMatches(
-                word,
-                searchData
-            )
+    songCount.textContent =
+        `${filtered.length} song${
+            filtered.length !== 1
+                ? "s"
+                : ""
+        }`;
+
+
+    updateSearchUI(
+        query,
+        filtered.length
     );
+
+
+    if (
+        filtered.length === 0
+    ) {
+
+        grid.innerHTML = `
+
+            <div class="no-results">
+
+                <div class="no-results-icon">
+
+                    <i class="fas fa-search"></i>
+
+                </div>
+
+                <div class="no-results-title">
+
+                    No matching songs found
+
+                </div>
+
+                <div class="no-results-text">
+
+                    Try another word, Roman Telugu spelling,
+                    Telugu word, or song name.
+
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    grid.innerHTML =
+        filtered.map(song => {
+
+            const preview =
+                (song.lyrics || "")
+                    .split("\n")
+                    .map(x => x.trim())
+                    .filter(Boolean)[0]
+                    || "...";
+
+
+            const link =
+                song.audio_url || "";
+
+
+            return `
+
+                <div
+                    class="song-card"
+                    data-id="${escapeAttribute(song.id)}"
+                >
+
+                    <div class="song-card-header">
+
+                        <span class="song-title">
+
+                            <i class="fas fa-music"></i>
+
+                            ${escapeHTML(
+                                song.title
+                            )}
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="song-card-body">
+
+                        <div class="song-preview">
+
+                            ${escapeHTML(
+                                preview
+                            )}
+
+                        </div>
+
+                    </div>
+
+
+                    ${
+                        link
+                        ?
+                        `
+                        <div class="song-link">
+
+                            <a
+                                href="${escapeAttribute(link)}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+
+                                <i class="fas fa-play-circle"></i>
+
+                                Play / Watch
+
+                            </a>
+
+                        </div>
+                        `
+                        :
+                        ""
+                    }
+
+
+                    <div class="song-footer">
+
+                        <span>
+
+                            <i class="far fa-eye"></i>
+
+                            Tap to view full
+
+                        </span>
+
+                        <i
+                            class="fas fa-arrow-right"
+                            style="color:var(--primary-dark);"
+                        ></i>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }).join("");
+
 }
 
 
@@ -2661,7 +2768,7 @@ async function loadSongs() {
             .order(
                 "id",
                 {
-                    ascending:true
+                    ascending: true
                 }
             );
 
@@ -2679,15 +2786,21 @@ async function loadSongs() {
             <div class="no-results">
 
                 <div class="no-results-icon">
+
                     <i class="fas fa-exclamation-triangle"></i>
+
                 </div>
 
                 <div class="no-results-title">
+
                     Unable to load songs
+
                 </div>
 
                 <div class="no-results-text">
+
                     Please try again later.
+
                 </div>
 
             </div>
@@ -2697,6 +2810,7 @@ async function loadSongs() {
 
         songCount.textContent =
             "0 songs";
+
 
         return;
     }
@@ -2708,203 +2822,11 @@ async function loadSongs() {
             : [];
 
 
+    buildSearchIndex();
+
     renderSongs();
 
     renderAdminList();
-
-}
-
-
-/* ============================================================
-   RENDER SONGS
-============================================================ */
-
-function renderSongs() {
-
-    const q =
-        searchQuery.trim();
-
-
-    if (songs.length === 0) {
-
-        songCount.textContent =
-            "0 songs";
-
-
-        grid.innerHTML = `
-
-            <div class="no-results">
-
-                <div class="no-results-icon">
-                    <i class="fas fa-music"></i>
-                </div>
-
-                <div class="no-results-title">
-                    No data found
-                </div>
-
-                <div class="no-results-text">
-                    Admin hasn't added any songs yet.
-                </div>
-
-            </div>
-
-        `;
-
-        return;
-    }
-
-
-    const filtered =
-        songs.filter(
-            song =>
-                songMatchesSearch(
-                    song,
-                    q
-                )
-        );
-
-
-    songCount.textContent =
-        `${filtered.length} song${
-            filtered.length !== 1
-                ? "s"
-                : ""
-        }`;
-
-
-    if (filtered.length === 0) {
-
-        grid.innerHTML = `
-
-            <div class="no-results">
-
-                <div class="no-results-icon">
-                    <i class="fas fa-search"></i>
-                </div>
-
-                <div class="no-results-title">
-                    No matching songs found
-                </div>
-
-                <div class="no-results-text">
-                    Try Telugu, English or Roman Telugu.
-                </div>
-
-            </div>
-
-        `;
-
-        return;
-    }
-
-
-    grid.innerHTML =
-        filtered
-            .map(
-                song => {
-
-                    const preview =
-                        (song.lyrics || "")
-                            .split("\n")
-                            .filter(
-                                x =>
-                                    x.trim() !== ""
-                            )[0]
-                            || "...";
-
-
-                    const link =
-                        song.audio_url || "";
-
-
-                    return `
-
-                        <div
-                            class="song-card"
-                            data-id="${escapeAttribute(song.id)}"
-                        >
-
-                            <div class="song-card-header">
-
-                                <span class="song-title">
-
-                                    <i class="fas fa-music"></i>
-
-                                    ${escapeHTML(
-                                        song.title
-                                    )}
-
-                                </span>
-
-                            </div>
-
-
-                            <div class="song-card-body">
-
-                                <div class="song-preview">
-
-                                    ${escapeHTML(
-                                        preview
-                                    )}
-
-                                </div>
-
-                            </div>
-
-
-                            ${
-                                link
-                                ?
-                                `
-
-                                <div class="song-link">
-
-                                    <a
-                                        href="${escapeAttribute(link)}"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-
-                                        <i class="fas fa-play-circle"></i>
-
-                                        Play / Watch
-
-                                    </a>
-
-                                </div>
-
-                                `
-                                :
-                                ""
-                            }
-
-
-                            <div class="song-footer">
-
-                                <span>
-
-                                    <i class="far fa-eye"></i>
-
-                                    Tap to view full
-
-                                </span>
-
-
-                                <i
-                                    class="fas fa-arrow-right"
-                                    style="color:var(--primary-dark);"
-                                ></i>
-
-                            </div>
-
-                        </div>
-
-                    `;
-
-                }
-            )
-            .join("");
 
 }
 
@@ -2923,11 +2845,17 @@ function renderAdminList() {
     }
 
 
-    if (songs.length === 0) {
+    if (
+        songs.length === 0
+    ) {
 
         adminSongList.innerHTML = `
 
-            <p style="color:var(--muted-text);">
+            <p
+                style="
+                color:var(--muted-text);
+                "
+            >
                 No songs added yet.
             </p>
 
@@ -2938,133 +2866,126 @@ function renderAdminList() {
 
 
     adminSongList.innerHTML =
-        songs
-            .map(
-                song => {
+        songs.map(song => {
 
-                    const isEditing =
-                        Number(
-                            editingSongId.value
-                        )
-                        ===
-                        Number(song.id);
+            const isEditing =
+                Number(
+                    editingSongId.value
+                ) ===
+                Number(song.id);
 
 
-                    return `
+            return `
 
-                        <div class="admin-song-item">
+                <div class="admin-song-item">
 
-                            <span>
+                    <span>
 
-                                ${escapeHTML(
-                                    song.title
-                                )}
+                        ${escapeHTML(
+                            song.title
+                        )}
 
-                                ${
-                                    isEditing
-                                    ?
-                                    `
-                                    <span class="edit-badge">
-                                        Editing
-                                    </span>
-                                    `
-                                    :
-                                    ""
-                                }
-
+                        ${
+                            isEditing
+                            ?
+                            `
+                            <span class="edit-badge">
+                                Editing
                             </span>
+                            `
+                            :
+                            ""
+                        }
+
+                    </span>
 
 
-                            <div class="actions">
+                    <div class="actions">
 
-                                <button
-                                    class="btn btn-edit edit-song"
-                                    data-id="${escapeAttribute(song.id)}"
-                                    style="
-                                    padding:.25rem .8rem;
-                                    font-size:.8rem;
-                                    "
-                                >
+                        <button
+                            class="btn btn-edit edit-song"
+                            data-id="${escapeAttribute(song.id)}"
+                            style="
+                            padding:.25rem .8rem;
+                            font-size:.8rem;
+                            "
+                        >
 
-                                    <i class="fas fa-pen"></i>
-                                    Edit
+                            <i class="fas fa-pen"></i>
 
-                                </button>
+                            Edit
+
+                        </button>
 
 
-                                <button
-                                    class="btn btn-danger delete-song"
-                                    data-id="${escapeAttribute(song.id)}"
-                                    style="
-                                    padding:.25rem .8rem;
-                                    font-size:.8rem;
-                                    "
-                                >
+                        <button
+                            class="btn btn-danger delete-song"
+                            data-id="${escapeAttribute(song.id)}"
+                            style="
+                            padding:.25rem .8rem;
+                            font-size:.8rem;
+                            "
+                        >
 
-                                    <i class="fas fa-trash"></i>
-                                    Delete
+                            <i class="fas fa-trash"></i>
 
-                                </button>
+                            Delete
 
-                            </div>
+                        </button>
 
-                        </div>
+                    </div>
 
-                    `;
+                </div>
 
-                }
-            )
-            .join("");
+            `;
+
+        }).join("");
 
 
     document
         .querySelectorAll(".edit-song")
-        .forEach(
-            button => {
+        .forEach(button => {
 
-                button.addEventListener(
-                    "click",
-                    function() {
+            button.addEventListener(
+                "click",
+                function() {
 
-                        startEditSong(
-                            Number(
-                                this.dataset.id
-                            )
-                        );
+                    startEditSong(
+                        Number(
+                            this.dataset.id
+                        )
+                    );
 
-                    }
-                );
+                }
+            );
 
-            }
-        );
+        });
 
 
     document
         .querySelectorAll(".delete-song")
-        .forEach(
-            button => {
+        .forEach(button => {
 
-                button.addEventListener(
-                    "click",
-                    function() {
+            button.addEventListener(
+                "click",
+                function() {
 
-                        deleteSong(
-                            Number(
-                                this.dataset.id
-                            )
-                        );
+                    deleteSong(
+                        Number(
+                            this.dataset.id
+                        )
+                    );
 
-                    }
-                );
+                }
+            );
 
-            }
-        );
+        });
 
 }
 
 
 /* ============================================================
-   DETAIL
+   SONG DETAIL
 ============================================================ */
 
 function openDetail(song) {
@@ -3085,12 +3006,16 @@ function openDetail(song) {
         "No lyrics available.";
 
 
-    if (song.audio_url) {
+    if (
+        song.audio_url
+    ) {
 
         detailLink.innerHTML = `
 
             <a
-                href="${escapeAttribute(song.audio_url)}"
+                href="${escapeAttribute(
+                    song.audio_url
+                )}"
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -3105,7 +3030,8 @@ function openDetail(song) {
 
     } else {
 
-        detailLink.innerHTML = "";
+        detailLink.innerHTML =
+            "";
 
     }
 
@@ -3114,10 +3040,8 @@ function openDetail(song) {
         "active"
     );
 
-
     document.body.style.overflow =
         "hidden";
-
 }
 
 
@@ -3129,7 +3053,6 @@ function closeDetail() {
 
     document.body.style.overflow =
         "";
-
 }
 
 
@@ -3146,7 +3069,10 @@ async function login() {
         loginPassword.value;
 
 
-    if (!email || !password) {
+    if (
+        !email ||
+        !password
+    ) {
 
         loginError.textContent =
             "Please enter email and password.";
@@ -3167,7 +3093,6 @@ async function login() {
             .signInWithPassword({
 
                 email,
-
                 password
 
             });
@@ -3251,18 +3176,15 @@ async function logout() {
 
     currentUser = null;
 
-
     adminPanel.classList.remove(
         "active"
     );
-
 
     resetAdminButton();
 
     cancelEdit();
 
     renderAdminList();
-
 }
 
 
@@ -3311,7 +3233,10 @@ async function addSong() {
         songCategory.value.trim();
 
 
-    if (!title || !lyrics) {
+    if (
+        !title ||
+        !lyrics
+    ) {
 
         alert(
             "Song title and lyrics are required."
@@ -3321,7 +3246,8 @@ async function addSong() {
     }
 
 
-    addSongBtn.disabled = true;
+    addSongBtn.disabled =
+        true;
 
 
     addSongBtn.innerHTML =
@@ -3339,7 +3265,8 @@ async function addSong() {
 
                     title,
 
-                    artist:"Jesus Songs",
+                    artist:
+                        "Jesus Songs",
 
                     lyrics,
 
@@ -3347,14 +3274,16 @@ async function addSong() {
                         link || null,
 
                     category:
-                        category || "Worship"
+                        category ||
+                        "Worship"
 
                 }
 
             ]);
 
 
-    addSongBtn.disabled = false;
+    addSongBtn.disabled =
+        false;
 
 
     addSongBtn.innerHTML =
@@ -3374,13 +3303,17 @@ async function addSong() {
     }
 
 
-    songTitle.value = "";
+    songTitle.value =
+        "";
 
-    songLyrics.value = "";
+    songLyrics.value =
+        "";
 
-    songLink.value = "";
+    songLink.value =
+        "";
 
-    songCategory.value = "";
+    songCategory.value =
+        "";
 
 
     await loadSongs();
@@ -3412,8 +3345,8 @@ function startEditSong(id) {
     const song =
         songs.find(
             s =>
-                Number(s.id)
-                === Number(id)
+                Number(s.id) ===
+                Number(id)
         );
 
 
@@ -3429,7 +3362,6 @@ function startEditSong(id) {
 
     editingSongId.value =
         song.id;
-
 
     songTitle.value =
         song.title || "";
@@ -3458,7 +3390,6 @@ function startEditSong(id) {
             "Untitled song"
         }`;
 
-
     formStatus.style.color =
         "#2471a3";
 
@@ -3467,11 +3398,8 @@ function startEditSong(id) {
 
 
     songTitle.scrollIntoView({
-
-        behavior:"smooth",
-
-        block:"center"
-
+        behavior: "smooth",
+        block: "center"
     });
 
 
@@ -3486,33 +3414,40 @@ function startEditSong(id) {
 
 function cancelEdit() {
 
-    editingSongId.value = "";
+    editingSongId.value =
+        "";
 
-    songTitle.value = "";
+    songTitle.value =
+        "";
 
-    songLyrics.value = "";
+    songLyrics.value =
+        "";
 
-    songLink.value = "";
+    songLink.value =
+        "";
 
-    songCategory.value = "";
+    songCategory.value =
+        "";
 
 
-    addSongBtn.disabled = false;
+    addSongBtn.disabled =
+        false;
 
     addSongBtn.innerHTML =
         `<i class="fas fa-save"></i> Add Song`;
 
 
-    cancelEditBtn.disabled = false;
+    cancelEditBtn.disabled =
+        false;
 
     cancelEditBtn.style.display =
         "none";
 
 
-    formStatus.textContent = "";
+    formStatus.textContent =
+        "";
 
     renderAdminList();
-
 }
 
 
@@ -3545,7 +3480,10 @@ async function updateSong(id) {
         songCategory.value.trim();
 
 
-    if (!title || !lyrics) {
+    if (
+        !title ||
+        !lyrics
+    ) {
 
         alert(
             "Song title and lyrics are required."
@@ -3555,9 +3493,11 @@ async function updateSong(id) {
     }
 
 
-    addSongBtn.disabled = true;
+    addSongBtn.disabled =
+        true;
 
-    cancelEditBtn.disabled = true;
+    cancelEditBtn.disabled =
+        true;
 
 
     addSongBtn.innerHTML =
@@ -3566,7 +3506,6 @@ async function updateSong(id) {
 
     formStatus.textContent =
         "Updating song...";
-
 
     formStatus.style.color =
         "#2471a3";
@@ -3587,7 +3526,8 @@ async function updateSong(id) {
                     link || null,
 
                 category:
-                    category || "Worship"
+                    category ||
+                    "Worship"
 
             })
             .eq(
@@ -3596,20 +3536,20 @@ async function updateSong(id) {
             );
 
 
-    addSongBtn.disabled = false;
+    addSongBtn.disabled =
+        false;
 
-    cancelEditBtn.disabled = false;
+    cancelEditBtn.disabled =
+        false;
 
 
     if (error) {
 
         console.error(error);
 
-
         formStatus.textContent =
             "❌ Update failed: " +
             error.message;
-
 
         formStatus.style.color =
             "#c0392b";
@@ -3617,7 +3557,6 @@ async function updateSong(id) {
 
         addSongBtn.innerHTML =
             `<i class="fas fa-save"></i> Update Song`;
-
 
         return;
     }
@@ -3690,8 +3629,7 @@ async function deleteSong(id) {
     if (
         Number(
             editingSongId.value
-        )
-        ===
+        ) ===
         Number(id)
     ) {
 
@@ -3711,7 +3649,7 @@ async function deleteSong(id) {
 
 
 /* ============================================================
-   SEARCH INPUT
+   SEARCH EVENTS
 ============================================================ */
 
 searchInput.addEventListener(
@@ -3720,32 +3658,6 @@ searchInput.addEventListener(
 
         searchQuery =
             this.value;
-
-
-        /*
-            Show / hide clear button
-        */
-
-        if (
-            this.value.trim()
-        ) {
-
-            searchClearBtn.classList.add(
-                "show"
-            );
-
-        } else {
-
-            searchClearBtn.classList.remove(
-                "show"
-            );
-
-        }
-
-
-        /*
-            Render immediately
-        */
 
         renderSongs();
 
@@ -3761,18 +3673,15 @@ searchClearBtn.addEventListener(
     "click",
     function() {
 
-        searchInput.value = "";
+        searchInput.value =
+            "";
 
-        searchQuery = "";
-
-        this.classList.remove(
-            "show"
-        );
-
-
-        searchInput.focus();
+        searchQuery =
+            "";
 
         renderSongs();
+
+        searchInput.focus();
 
     }
 );
@@ -3799,7 +3708,9 @@ adminToggleBtn.addEventListener(
         );
 
 
-        loginError.textContent = "";
+        loginError.textContent =
+            "";
+
 
         loginEmail.focus();
 
@@ -3940,7 +3851,7 @@ document.addEventListener(
 
 
 /* ============================================================
-   SONG CARD CLICK
+   SONG CARD
 ============================================================ */
 
 grid.addEventListener(
@@ -3950,9 +3861,7 @@ grid.addEventListener(
         if (
             e.target.closest("a")
         ) {
-
             return;
-
         }
 
 
@@ -3976,8 +3885,8 @@ grid.addEventListener(
         const song =
             songs.find(
                 s =>
-                    Number(s.id)
-                    === id
+                    Number(s.id) ===
+                    id
             );
 
 
@@ -4023,45 +3932,43 @@ function escapeHTML(value) {
         value ?? ""
     )
 
-    .replace(
-        /&/g,
-        "&amp;"
-    )
+        .replace(
+            /&/g,
+            "&amp;"
+        )
 
-    .replace(
-        /</g,
-        "&lt;"
-    )
+        .replace(
+            /</g,
+            "&lt;"
+        )
 
-    .replace(
-        />/g,
-        "&gt;"
-    )
+        .replace(
+            />/g,
+            "&gt;"
+        )
 
-    .replace(
-        /"/g,
-        "&quot;"
-    )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
 
-    .replace(
-        /'/g,
-        "&#039;"
-    );
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
 function escapeAttribute(value) {
 
-    return escapeHTML(
-        value
-    );
+    return escapeHTML(value);
 
 }
 
 
 /* ============================================================
-   CHECK LOGIN
+   EXISTING SESSION
 ============================================================ */
 
 async function checkUser() {
@@ -4135,18 +4042,16 @@ supabaseClient.auth.onAuthStateChange(
 
             setAdminButton();
 
-
             renderAdminList();
 
         } else {
 
-            currentUser = null;
-
+            currentUser =
+                null;
 
             adminPanel.classList.remove(
                 "active"
             );
-
 
             resetAdminButton();
 
